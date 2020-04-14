@@ -1,0 +1,9 @@
+[24-Oct-2019 09:32:44 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: nombre in /home/naiquema/public_html/enviar.php on line 6
+[24-Oct-2019 09:32:44 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: empresa in /home/naiquema/public_html/enviar.php on line 7
+[24-Oct-2019 09:32:44 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: telefono in /home/naiquema/public_html/enviar.php on line 8
+[24-Oct-2019 09:32:44 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: email in /home/naiquema/public_html/enviar.php on line 9
+[24-Oct-2019 09:32:44 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: localidad in /home/naiquema/public_html/enviar.php on line 10
+[24-Oct-2019 09:32:44 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: provincia in /home/naiquema/public_html/enviar.php on line 11
+[24-Oct-2019 09:32:44 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: pais in /home/naiquema/public_html/enviar.php on line 12
+[24-Oct-2019 09:32:44 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: mensaje in /home/naiquema/public_html/enviar.php on line 13
+[24-Oct-2019 09:32:44 America/Argentina/Buenos_Aires] PHP Notice:  Undefined index: email in /home/naiquema/public_html/enviar.php on line 14
