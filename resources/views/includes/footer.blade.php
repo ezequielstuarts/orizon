@@ -1,41 +1,37 @@
 <footer>
     
-    <div class="container" style="padding-top:200px;">	
-    <div class="row">
-    <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="fila img-logo-footer"><img src="img/logo_footer_info.png" alt=""></div>
-    <div class="fila link mt-4">
-    <ul>
-    <li>
-    <a href="nosotros">Nosotros</a>
-    </li>
-    <li>
-    <a href="nuestros-productos">Nuestros productos</a>
-    </li>
-    <li>
-    <a href="donde-estamos">Dónde estamos</a>
-    </li>
-    <li>
-    <a href="puntos-de-venta">Puntos de venta</a>
-    </li>
-    <li>
-    <a href="novedades">Novedades</a>
-    </li>
-    
-    </ul>
-    <div class="col-100"><a href="contacto.html" class="boton-azul">¿querés vender orizon?</a></div>
-    
-    <div class="fila" style="padding-top:130px;">
-    <a href="#popup-legales" class="popup-link">Términos y Condiciones</a>
-    </div>
-    
-    
-    </div>
-    
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-12 align-content-center">
-    <div class="footerbox" style="margin-top:100px; padding-top:30px;">
-    <h3>SEGUINOS!</h3>
+    <div class="container" style="padding-top:200px;">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="fila img-logo-footer"><img src="img/logo_footer_info.png" alt=""></div>
+          <div class="fila link mt-4">
+            <ul>
+              <li class="{{ Request::is( 'nosotros') ? 'font-weight-bold' : '' }}">
+                <a href="{{ URL::to( 'nosotros') }}">Nosotros</a>
+              </li>
+              <li class="{{ Request::is( 'nuestros-productos') ? 'font-weight-bold' : '' }}">
+                <a href="{{ URL::to( 'nuestros-productos') }}">Nuestros productos</a>
+              </li>
+              <li class="{{ Request::is( 'donde-estamos') ? 'font-weight-bold' : '' }}">
+                <a href="{{ URL::to( 'donde-estamos') }}">Dónde estamos</a>
+              </li>
+              <li class="{{ Request::is( 'puntos-de-venta') ? 'font-weight-bold' : '' }}">
+                <a href="{{ URL::to( 'puntos-de-venta') }}">Puntos de venta</a>
+              </li>
+              <li class="{{ Request::is( 'novedades') ? 'font-weight-bold' : '' }}">
+                <a href="{{ URL::to( 'novedades') }}">Novedades</a>
+              </li>
+
+              
+              <div class="col-100"><a href="contacto.html" class="boton-azul">¿querés vender orizon?</a></div>
+              <div class="fila" style="padding-top:130px;">
+                <a href="#popup-legales" class="popup-link">Términos y Condiciones</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12 align-content-center">
+            <div class="footerbox" style="margin-top:100px; padding-top:30px;">
+              <h3>SEGUINOS!</h3>
     
     <a href="https://www.facebook.com/orizonAguaMineral" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.youtube.com/channel/UCTxnACbSg7SFKoHJ_lly3VQ" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -103,4 +99,6 @@
     
     </div><!-- end container -->
     
+    @include('includes.legales')
      </footer> 
+     
