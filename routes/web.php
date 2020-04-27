@@ -31,8 +31,20 @@ Route::get('donde-estamos', function () {
 Route::get('puntos-de-venta', function () {
     return view('puntos-de-venta');
 });
+Route::get('novedades', 'NoticiasController@index')->name('novedades');
 
-Auth::routes();
+// Auth::routes();
+Auth :: routes (['register' => false, 'confirm' => false, 'reset' => false]);
 
-Route::get('/novedades', 'NoticiasController@index')->name('novedades');
-// Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+//Admin
+Route::group(['middleware' => 'auth'], function ()
+{
+    Route::get('admin', 'Admin\AdminController@index');
+    Route::resource('admin/noticias', 'Admin\NoticiasController');
+    Route::get('admin/noticias/hide/{id}', 'Admin\NoticiasController@hide')->name('noticias.hide');
+    // Route::get('admin/noticias', 'Admin\NoticiasController@index')->name('noticias');
+    // Route::get('admin/nueva-noticia', 'Admin\NoticiasController@create')->name('nueva-noticia');
+});

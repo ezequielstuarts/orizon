@@ -23,7 +23,7 @@
 								<div class="separador"> <hr> </div>
 								<div class="imagen_noticia"><img src="img/noticias/agua_mineral-cosmetico.jpg" alt=""></div>
 								<div class="resumen_noticia"><p>{{$noticia->copete}}</p></div>
-								<div class="resumen_noticia"><p>{{$noticia->contenido}}</p></div>
+								<div class="resumen_noticia"><p>{!!$noticia->contenido!!}</p></div>
 							</div>
 							<div class="columna img_novedad columna_imagen">
 								<img src="img/noticias/agua_mineral-cosmetico.jpg" alt="">
@@ -40,7 +40,7 @@
 								<div class="separador"> <hr> </div>
 								<div class="imagen_noticia"><img src="img/noticias/agua_mineral-cosmetico.jpg" alt=""></div>
 								<div class="resumen_noticia"><p>{{$noticia->copete}}</p></div>
-								<div class="resumen_noticia"><p>{{$noticia->content}}</p></div>
+								<div class="resumen_noticia"><p>{!!$noticia->contenido!!}</p></div>
 							</div>
 						</div>
 					@endif
