@@ -6,7 +6,7 @@
         <div class="col-md-8 offset-md-2">
             <div class="card">
                 <div class="card-header">
-                    Crear post.
+                    Nueva Noticia
                 </div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'noticias.store', 'files' => 'true']) !!}

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Noticia extends Model
 {
+    public $table = "noticias";
+    public $primarykey = "id";
     protected $fillable = [
-        'title', 'subtitle', 'copete', 'contenido', 'slug', 'img','status'];
+        'date', 'title', 'subtitle', 'copete', 'contenido', 'img','status'];
 }

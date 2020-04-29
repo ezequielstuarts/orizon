@@ -4,14 +4,14 @@
 <div class="container mb-3">
     <div class="row">
 
-        <div class="col-md-10 ">
-            <h5 class="text-secondary"><b>{{$totalNoticias}}</b> Noticias en la base de datos.</h5>
+        <div class="col-md-9 ">
+            {{-- <h5 class="text-secondary">Listado de noticias. <b>{{$totalNoticias}}</b> Noticias en la base de datos.</h5> --}}
         </div>
 
 
-        <div class="col-md-2">
+        <div class="container">
             <div class="boton-nueva-noticia">
-                <a class="" href="{{route('admin.noticias-ocultas')}}" title="Ver noticias ocultas"><i class="fas fa-eye-slash"></i></a>
+                <a class="" href="{{route('noticias.index')}}" title="Ver noticias ocultas"><i class="fas fa-eye"></i></a>
             </div>
         </div>
     </div>
@@ -24,7 +24,8 @@
                 <th colspan="col">Fecha</th>
                 <th colspan="col">Titulo</th>
                 <th colspan="col">Imagen</th>
-                <th colspan="3">Acciones</th>
+                <th colspan="4">Acciones</th>
+                <!-- <th colspan="col">Acciones</th> -->
             </tr>
         </thead>
         @forelse ($noticias as $noticia)
@@ -53,7 +54,19 @@
                 </td>
                 
                 <td width="10px">
-                    <a href="{{ route('noticias.ocultar', $noticia->id) }}" class="btn btn-sm btn-outline-warning">Ocultar</a>
+                    <a href="{{ route('noticias.mostrar', $noticia->id) }}" class="btn btn-sm btn-outline-warning">Mostrar</a>
+                </td>
+                {{-- <td width="10px">
+                    <form action="{{route('noticias.destroy', $noticia->id)}}" method="post">
+                        {{csrf_field()}}
+                        <input type="hidden" name="id" value="{{$noticia->id}}">
+                        <input class="btn btn-sm btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
+                    </form>
+                </td> --}}
+                <td width="10px">
+                    {!! Form::open(['route' => ['noticias.destroy', $noticia->id], 'method' => 'delete']) !!}
+                        <button class="btn btn-sm btn-danger">Eliminar</button>
+                    {!! Form::close() !!}
                 </td>
                 
             </tr>

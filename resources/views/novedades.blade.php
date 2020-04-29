@@ -15,32 +15,58 @@
 		<section id="novedades">
 			<div class="contenido_novedades">
 				@foreach ($noticias as $noticia)
-					@if((!($noticia->id % 2) == 0))
-						<div class="fila noticia dos-columnas">
+					@if((($noticia->id % 2) == 0))
+						<div class="fila noticia dos-columnas" id="par">
 							<div class="columna">
-								<div class="titulo_noticia"><h1> {{($noticia->id)}} {{$noticia->title}} </h1></div>
-								<div class="fecha_noticia"><p> {{$noticia->subtitle}} </p></div>
+								
+								<div class="titulo_noticia"><h1>{{$noticia->title}}</h1></div>
+								
+								<div class="fecha_noticia"><p> {{ $noticia->created_at->isoFormat('MMMM YYYY', 'Do MMMM')  }} </p></div>
+								
 								<div class="separador"> <hr> </div>
-								<div class="imagen_noticia"><img src="img/noticias/agua_mineral-cosmetico.jpg" alt=""></div>
-								<div class="resumen_noticia"><p>{{$noticia->copete}}</p></div>
+								
+								<div class="subtitle_noticia"><p> {{$noticia->subtitle}} </p></div>
+								
+								<div class="imagen_noticia">
+									<img src="/storage/imagenes/img_noticias/{{$noticia->img}}" alt="{{$noticia->title}}">
+								</div>
+								
+								@if (isset($noticia->copete))
+									<div class="resumen_noticia"><p>{{$noticia->copete}}</p></div>
+								@endif
+								
 								<div class="resumen_noticia"><p>{!!$noticia->contenido!!}</p></div>
 							</div>
+							
 							<div class="columna img_novedad columna_imagen">
-								<img src="img/noticias/agua_mineral-cosmetico.jpg" alt="">
+								<img src="/storage/imagenes/img_noticias/{{$noticia->img}}" alt="{{$noticia->title}}">
 							</div>
+
 						</div>
 					@else
-						<div class="fila noticia dos-columnas">
+						<div class="fila noticia dos-columnas" id="impar">
 							<div class="columna columna_imagen">
-								<img style="width: 100%;" src="img/noticias/agua_mineral-receta.jpg" alt="">
+								<img src="/storage/imagenes/img_noticias/{{$noticia->img}}" alt="{{$noticia->title}}">
 							</div>
 							<div class="columna">
-								<div class="titulo_noticia"><h1>{{($noticia->id)}} {{$noticia->title}}</h1></div>
-								<div class="fecha_noticia"><p> {{$noticia->subtitle}} </p></div>
+								
+								<div class="titulo_noticia"><h1>{{$noticia->title}}</h1></div>
+								
+								<div class="fecha_noticia"><p> {{ $noticia->created_at->isoFormat('MMMM YYYY', 'Do MMMM')  }} </p></div>
+								
 								<div class="separador"> <hr> </div>
-								<div class="imagen_noticia"><img src="img/noticias/agua_mineral-cosmetico.jpg" alt=""></div>
-								<div class="resumen_noticia"><p>{{$noticia->copete}}</p></div>
-								<div class="resumen_noticia"><p>{!!$noticia->contenido!!}</p></div>
+								
+								<div class="subtitle_noticia"><p> {{$noticia->subtitle}} </p></div>
+								
+								<div class="imagen_noticia">
+									<img src="/storage/imagenes/img_noticias/{{$noticia->img}}" alt="{{$noticia->title}}">
+								</div>
+								
+								@if (isset($noticia->copete))
+									<div class="resumen_noticia"><p>{{$noticia->copete}}</p></div>
+								@endif
+								
+								<div class="resumen_noticia">{!!$noticia->contenido!!}</div>
 							</div>
 						</div>
 					@endif

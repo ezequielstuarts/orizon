@@ -1,6 +1,10 @@
+
 <div class="form-group">
     {{-- {{ Form::label('name', 'Fecha') }} --}}
-    {{ Form::date('date', now(), ['class' => 'form-control', 'id' => 'date']) }}
+    {{ Form::text('text', null, ['class' => 'form-control datepicker', 'id' => 'date']) }}
+    <div class="input-group-addon">
+        <span class="glyphicon glyphicon-th"></span>
+    </div>
 </div>
 
 <div class="form-group">
@@ -23,6 +27,8 @@
     {{ Form::file('img') }} 
 </div>
 
+
+
 <div class="form-group">
     {{-- {{ Form::label('contenido', 'Contenido') }} --}}
     {{ Form::textarea('contenido', null, ['class' => 'form-control']) }}
@@ -30,7 +36,7 @@
 
 <div class="form-group">
     {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-success']) }}
-    <a href=" {{route('noticias.index')}} " class="btn btn-sm btn-danger float-right">Cancelar</a>
+    <a href=" {{ URL::previous() }} " class="btn btn-sm btn-danger float-right">Cancelar</a>
 </div>
 
 
@@ -42,4 +48,5 @@
         CKEDITOR.config.width = 'auto';
         CKEDITOR.replace('contenido');
     </script>
+    
 @endsection

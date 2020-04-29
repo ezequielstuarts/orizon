@@ -44,7 +44,11 @@ Route::group(['middleware' => 'auth'], function ()
 {
     Route::get('admin', 'Admin\AdminController@index');
     Route::resource('admin/noticias', 'Admin\NoticiasController');
-    Route::get('admin/noticias/hide/{id}', 'Admin\NoticiasController@hide')->name('noticias.hide');
+    
+    Route::get('admin/noticias-ocultas', 'Admin\NoticiasController@ocultas')->name('admin.noticias-ocultas');
+    
+    Route::get('admin/noticias/ocultar/{id}', 'Admin\NoticiasController@ocultar')->name('noticias.ocultar');
+    Route::get('admin/noticias/mostrar/{id}', 'Admin\NoticiasController@mostrar')->name('noticias.mostrar');
     // Route::get('admin/noticias', 'Admin\NoticiasController@index')->name('noticias');
     // Route::get('admin/nueva-noticia', 'Admin\NoticiasController@create')->name('nueva-noticia');
 });

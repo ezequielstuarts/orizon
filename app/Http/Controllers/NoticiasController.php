@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Noticia;
+use Carbon\Carbon;
 
 class NoticiasController extends Controller
 {
@@ -14,7 +15,7 @@ class NoticiasController extends Controller
      */
     public function index()
     {
-        $noticias = Noticia::orderBy('id', 'asc')->paginate(2);
+        $noticias = Noticia::orderBy('created_at', 'desc')->paginate(2);
         
         return view('novedades', ['noticias' => $noticias]);
     }

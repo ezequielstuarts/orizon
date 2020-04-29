@@ -22,14 +22,21 @@
                     </li>
                 @else
                     <li class="nav-item {{ Request::is( 'admin') ? 'activado' : '' }}">
-                        <a class="nav-link" href="{{ URL::to('admin') }}"><i class="fas fa-newspaper"></i>Inicio</a>
+                        <a class="nav-link" href="{{ URL::to('admin') }}"><i class="fas fa-home"></i>Inicio</a>
                     </li>
                     <li class="nav-item {{ Request::is( 'admin/noticias') ? 'activado' : '' }}">
                         <a class="nav-link" href="{{ URL::to('admin/noticias') }}"><i class="fas fa-newspaper"></i>Listado Noticias</a>
                     </li>
                     <li class="nav-item {{ Request::is( 'admin/noticias/create') ? 'activado' : '' }}">
-                        <a class="nav-link" href="{{ URL::to('admin/noticias/create') }}"><i class="fas fa-newspaper"></i>Nueva Noticia</a>
+                        <a class="nav-link" href="{{ URL::to('admin/noticias/create') }}"><i class="fas fa-plus-square"></i>Nueva Noticia</a>
                     </li>
+                    
+                        <form class="form-inline">
+                            <input class="form-control form-control-sm ml-sm-2 " type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0 btn-sm" type="submit">Buscar</button>
+                          </form>
+                    
+                    
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -37,7 +44,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
+                                            document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>
                                 {{ __('Logout') }}
                             </a>
 

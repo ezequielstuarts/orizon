@@ -2,3 +2,15 @@
     color: #13b7da!important;
     font-weight: 600;
 }
+
+.boton-nueva-noticia {
+    float: right;
+}
+
+.boton-nueva-noticia i {
+    color: #13b7da;
+}
+
+nav .fas {
+    padding-right: 10px;
+}

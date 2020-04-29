@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NoticiaStoreRequest;
+use App\Http\Requests\NoticiaUpdateRequest;
+use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Noticia;
 
@@ -15,8 +19,17 @@ class NoticiasController extends Controller
      */
     public function index()
     {
-        $noticias = Noticia::where('status', 'PUBLISHED')->orderBy('id', 'asc')->get();
-        return view('admin.noticias.index', ['noticias' => $noticias]);
+        $ruta = '/storage/imagenes/img_noticias';
+        $totalNoticias = count(Noticia::get());
+        $noticias = Noticia::where('status', 'PUBLISHED')->orderBy('created_at', 'desc')->get();
+        return view('admin.noticias.index', ['noticias' => $noticias, 'ruta' => $ruta, 'totalNoticias' => $totalNoticias]);
+    }
+    
+    public function ocultas()
+    {
+        $ruta = '/storage/imagenes/img_noticias';
+        $noticias = Noticia::where('status', 'DRAFT')->orderBy('created_at', 'desc')->get();
+        return view('admin.noticias.noticias-ocultas', ['noticias' => $noticias, 'ruta' => $ruta]);
     }
 
     /**
@@ -37,7 +50,26 @@ class NoticiasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reglas = [
+            "date" => "required",
+            "title" => "required",
+            'img' => 'required|file|mimes:jpg,jpeg,png'
+        ];
+        $mensajes = [
+            "required" => "Debe ingresar :attribute de la noticia.",
+        ];
+        
+        $this->validate($request, $reglas, $mensajes);
+
+        $noticia = Noticia::create($request->all());
+        $carpeta = 'imagenes/img_noticias';
+        $rutaImg = $request->file("img")->store($carpeta, 'public');
+        $nombreImg = basename($rutaImg);
+        $noticia->img = $nombreImg;
+        $noticia->slug = str_slug($request["title"]);
+        
+        $noticia->save();
+        return redirect('admin/noticias')->with('info', 'Noticia creada con exito.');
     }
 
     /**
@@ -48,32 +80,48 @@ class NoticiasController extends Controller
      */
     public function show($id)
     {
+        $ruta = '/storage/imagenes/img_noticias';
         $noticia = Noticia::find($id);
-        return view('admin.noticias.show', ['noticia' => $noticia]);
+        return view('admin.noticias.show', ['noticia' => $noticia, 'ruta' => $ruta]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
+   
     public function edit($id)
     {
         $noticia = Noticia::find($id);
         return view('admin.noticias.edit', ['noticia' => $noticia]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, $id)
     {
-        //
+        $reglas = [
+            "title" => "required|string",
+        ];
+        $mensajes = [
+            "string" => "El campo :attribute debe ser un nombre.",
+            "required" => "El campo :attribute es necesario.",
+        ];
+
+        $this->validate($request, $reglas, $mensajes);
+
+        $noticia = Noticia::find($id);
+        $diff = array_diff($request->toArray(), $noticia->toArray());
+
+        if ($request->has('img')) {
+
+            $basename_preview = basename($request->file("img")->store('public/imagenes/img_noticias/'));
+
+            $img = $noticia['img'];
+            Storage::delete('public/imagenes/img_noticias/'.$img);
+            $diff["img"] = $basename_preview;
+        }
+
+        $diff['slug'] = str_slug($request["title"]);
+        $noticia->update($diff);
+        return redirect('admin/noticias')->with('info', 'Noticia Actualizada');
+
     }
 
     /**
@@ -83,7 +131,7 @@ class NoticiasController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-     public function hide($id)
+    public function ocultar($id)
     {
         $noticia = Noticia::find($id);
         $noticia->status = 'DRAFT';
@@ -91,10 +139,22 @@ class NoticiasController extends Controller
         return back()->with('info', 'Noticia Ocultada.');
     }
     
+    public function mostrar($id)
+    {
+        $noticia = Noticia::find($id);
+        $noticia->status = 'PUBLISHED';
+        $noticia->save();
+        return back()->with('info', 'Noticia Mostrada.');
+    }
+    
     public function destroy($id)
     {
         $noticia = Noticia::find($id);
+        $img = $noticia['img'];
+        
+        Storage::delete('public/imagenes/img_noticias/'.$img);
+        
         $noticia->delete();
-        return back()->with('info', 'Noticia eliminada.');
+        return redirect('admin/noticias-ocultas')->with('info', 'Noticia Eliminada');
     }
 }
