@@ -29,13 +29,7 @@
                     </li>
                     <li class="nav-item {{ Request::is( 'admin/noticias/create') ? 'activado' : '' }}">
                         <a class="nav-link" href="{{ URL::to('admin/noticias/create') }}"><i class="fas fa-plus-square"></i>Nueva Noticia</a>
-                    </li>
-                    
-                        <form class="form-inline">
-                            <input class="form-control form-control-sm ml-sm-2 " type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0 btn-sm" type="submit">Buscar</button>
-                          </form>
-                    
+                    </li>                   
                     
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

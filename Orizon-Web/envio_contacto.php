@@ -7,12 +7,12 @@ $asunto = "Quiero ser vendedor -  contacto desde la web Orizon";
 $headers.="X-Mailer: PHP5\n";	
 $cabeceras.= "MIME-Version: 1.0\r\n";
 $cabeceras .="Content-type: text/html; charset=iso-8859-1\r\n";
-$cabeceras.= 'To: ventas@orizon.com.ar' . "\r\n";
+$cabeceras.= 'To: elzeke55@gmail.com' . "\r\n";
 //$cabeceras .= 'To: pachajsc@gmail.com' . "\r\n";
 
 $cabeceras .= 'From: Orizon' . "\r\n";
 
-$to = "ventas@orizon.com.ar"; //, s.gutierrez@mas54.com  j.torres@mas54.com
+$to = "elzeke55@gmail.com"; //, s.gutierrez@mas54.com  j.torres@mas54.com
 
 
 if(mail($to,$asunto,$msg,$cabeceras)){

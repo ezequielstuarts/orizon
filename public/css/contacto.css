@@ -1,37 +1,58 @@
 /********************* SECTION *************************/
+
 #contacto {
-position:relative;
-z-index:3;
-top:-300px;
-position:relative;
-width: 100%;
-background-image: url(../img/1920/fondo_vendedores_orizon.png);
-background-size: cover;
-background-position: top center;
-background-repeat: no-repeat;
-padding: 200px 25% 116px 25% !important;
-}	
+    position: relative;
+    z-index: 3;
+    top: -300px;
+    position: relative;
+    width: 100%;
+    background-image: url(../img/1920/fondo_vendedores_orizon.png);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    padding: 200px 25% 116px 25% !important;
+}
+
+.contacto_fondo {
+    margin-top: 57px;
+    position: absolute;
+    width: 100%;
+    height: 2700px;
+    background-image: url(../img/1920/fondo_novedades.png);
+    background-size: cover;
+    background-position: top center;
+    z-index: -1;
+}
+
+.contenido_contacto {
+    margin-top: 190px;
+    padding-top: 30px;
+    padding-bottom: 230px;
+    overflow: hidden;
+    max-width: 714px;
+    margin: auto;
+    padding-top: 200px;
+}
 
 
-
-
-.contacto_fondo { margin-top:57px; position: absolute; width: 100%;  height: 2700px; background-image: url(../img/1920/fondo_novedades.png); background-size: cover; background-position: top center; z-index: -1;}
-.contenido_contacto{ margin-top: 190px; padding-top: 30px; padding-bottom:230px;  overflow: hidden; max-width: 714px; margin:auto; padding-top:200px; }
 }
 @media screen and (min-width: 768px) {
-
-/********************* SECTION *************************/
-#contacto {
-top: -260px !important;	
-padding: 100px 5% 0px 5% !important;	
-	 }
-/*.contacto_fondo { height: 2300px; }*/
+    /********************* SECTION *************************/
+    
+    #contacto {
+        top: -260px !important;
+        padding: 100px 5% 0px 5% !important;
+    }
+    /*.contacto_fondo { height: 2300px; }*/
 }
 @media screen and (min-width: 1024px) {
-/********************* SECTION *************************/
-.contacto_fondo { height: 1700px; margin-top:0;}
+    /********************* SECTION *************************/
+    
+    .contacto_fondo {
+        height: 1700px;
+        margin-top: 0;
+    }
 }
-
 .fila {
     position: relative;
     width: 100%;
@@ -39,126 +60,242 @@ padding: 100px 5% 0px 5% !important;
     padding-left: 0%;
     padding-right: 0%;
 }
+
 /***************** FORM ******************************/
-#contacto form button.boton-azul-form.btn-contacto{
-	background-color:#13B7DA;
-	color:#0C265D; 
+#contacto form button.boton-azul-form.btn-contacto {
+    background-color: #13B7DA;
+    color: #0C265D;
 }
-#contacto form button.boton-azul-form.btn-contacto:hover{
-	background-color:#13B7DA;
-	color:#FFFFFF; 
+#contacto form button.boton-azul-form.btn-contacto:hover {
+    background-color: #13B7DA;
+    color: #FFFFFF;
 }
-
-#contacto form .col-100, form .col-50-izq, form .col-50-der{
-	color:#0C265D;
+#contacto form .col-100,
+form .col-50-izq,
+form .col-50-der {
+    color: #0C265D;
 }
-
-#contacto form select option{
-	color:#0C265D;
+#contacto form select option {
+    color: #0C265D;
 }
-#contacto input::placeholder, textarea::placeholder{
-	color:#0c265d;
+#contacto input::placeholder,
+textarea::placeholder {
+    color: #0c265d;
 }
 .cont-formulario .col-recap {
-  
     margin-top: 20px;
 }
-.cont-gracias{
-	display: none;
-	min-height: 228px;
+.cont-gracias {
+    display: none;
+    min-height: 228px;
     margin: 114px auto;
     padding: 0 10px;
 }
-.cuadrado-gracias{
-	text-align: center!important;
+.cuadrado-gracias {
+    text-align: center!important;
     border: solid 5px #FFFFFF;
     padding: 52px;
     max-width: 700px;
-
 }
-
-.cuadrado-gracias h1{
-	 font-size: 26px;
+.cuadrado-gracias h1 {
+    font-size: 26px;
     font-weight: 600;
     margin-top: 5px;
 }
-.cuadrado-gracias .subtitulo_seccion{
-	padding: 0;
+.cuadrado-gracias .subtitulo_seccion {
+    padding: 0;
 }
-.cuadrado-gracias .subtitulo_seccion p{
-	text-align: center;
-	margin: 0;
+.cuadrado-gracias .subtitulo_seccion p {
+    text-align: center;
+    margin: 0;
 }
-#captcha{
-	margin-left: 0;
+#captcha {
+    margin-left: 0;
     color: red;
     position: relative;
     top: -18px;
     padding: 0;
 }
+
 /********************* HEADER **************************/
-.fondo_productos.capa_trasera { position: absolute; width: 100%; background-size: cover; height:770px; margin: 0 auto; background-image: url('../img/fondo_contactos.jpg'); background-position: 70% top; background-repeat: no-repeat; z-index: 0; transition: none; }
-.fondo_productos.capa_frontal { position: relative; width: 100%; height: 0; margin: 30px auto 0;  padding-top: 50.75%; background-image: url('../img/contactos.png'); background-position: 24% bottom; background-repeat: no-repeat; background-size: 100% auto; z-index: 2; }
-.titulo_seccion { position: relative; margin-top: 30px; margin-left: 5%; text-align: left; z-index: 4;  }
-.titulo_seccion h1 { margin: 0; padding: 0; font-size: 25px; font-weight: 500; color:#FFFFFF; margin-bottom: 34px; }
-.subtitulo_seccion { position: relative; margin-left: 5%; margin-right: 5%; padding-top: 0; text-align:left; z-index: 4; }
-.subtitulo_seccion h2 { margin: 15px 0 0; padding: 0; padding-left: 10px; font-size: 20px; font-weight: 200; line-height: 26px; color: #13b7da; }
-.subtitulo_seccion h2 strong { font-weight: 700; }
-.info_productos { width: 86%; position: relative; margin: 0 auto; z-index: 4; overflow: hidden; }
-.descripcion_productos { width: 100%; float: left; position: relative; text-align:left; z-index: 4; }
-.descripcion_productos p { width: 95%; margin: 40px 0; padding: 0; font-size: 18px; font-weight: 500; line-height: 25px; color: #0c265d; }
-.detalle_productos { width: 100%; float: left; position: relative; text-align: left; z-index: 4; }
-.detalle_productos ul { margin: 0; padding: 40px 50px; background-color: #fff; border-radius: 90px; }
-.detalle_productos ul li { list-style: none; font-size: 18px; font-weight: 400; line-height: 25px; color: #13b7da; }
-.detalle_productos ul li:before { content: '- '; }
+.fondo_productos.capa_trasera {
+    position: absolute;
+    width: 100%;
+    background-size: cover;
+    height: 770px;
+    margin: 0 auto;
+    background-image: url('../img/fondo_contactos.jpg');
+    background-position: 70% top;
+    background-repeat: no-repeat;
+    z-index: 0;
+    transition: none;
+}
+.fondo_productos.capa_frontal {
+    position: relative;
+    width: 100%;
+    height: 0;
+    margin: 30px auto 0;
+    padding-top: 50.75%;
+    background-image: url('../img/contactos.png');
+    background-position: 24% bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    z-index: 2;
+}
+.titulo_seccion {
+    position: relative;
+    margin-top: 30px;
+    margin-left: 5%;
+    text-align: left;
+    z-index: 4;
+}
+.titulo_seccion h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin-bottom: 34px;
+}
+.subtitulo_seccion {
+    position: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 0;
+    text-align: left;
+    z-index: 4;
+}
+.subtitulo_seccion h2 {
+    margin: 15px 0 0;
+    padding: 0;
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 26px;
+    color: #13b7da;
+}
+.subtitulo_seccion h2 strong {
+    font-weight: 700;
+}
+.info_productos {
+    width: 86%;
+    position: relative;
+    margin: 0 auto;
+    z-index: 4;
+    overflow: hidden;
+}
+.descripcion_productos {
+    width: 100%;
+    float: left;
+    position: relative;
+    text-align: left;
+    z-index: 4;
+}
+.descripcion_productos p {
+    width: 95%;
+    margin: 40px 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25px;
+    color: #0c265d;
+}
+.detalle_productos {
+    width: 100%;
+    float: left;
+    position: relative;
+    text-align: left;
+    z-index: 4;
+}
+.detalle_productos ul {
+    margin: 0;
+    padding: 40px 50px;
+    background-color: #fff;
+    border-radius: 90px;
+}
+.detalle_productos ul li {
+    list-style: none;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #13b7da;
+}
+.detalle_productos ul li:before {
+    content: '- ';
+}
 .subtitulo_seccion p {
     margin: 0px 0 0;
     padding: 0;
     /* padding-left: 23px; */
+    
     font-size: 25px;
     max-width: 612px;
     font-weight: 500;
     line-height: 34px;
     color: #fff;
 }
-
-
-
 @media screen and (min-width: 500px) {
-	
-	/********************* HEADER **************************/
-	.titulo_seccion { margin-top: 60px; }
-	.titulo_seccion h1 { font-size: 44px; }
-	.subtitulo_seccion { padding-top: 15px; }
-	.subtitulo_seccion h2 { margin-bottom: 0; padding-left: 25px; font-size: 32px; line-height: 35px; }
-	
-	
+    /********************* HEADER **************************/
+    
+    .titulo_seccion {
+        margin-top: 60px;
+    }
+    
+    .titulo_seccion h1 {
+        font-size: 44px;
+    }
+    
+    .subtitulo_seccion {
+        padding-top: 15px;
+    }
+    
+    .subtitulo_seccion h2 {
+        margin-bottom: 0;
+        padding-left: 25px;
+        font-size: 32px;
+        line-height: 35px;
+    }
 }
-
-
-
 @media screen and (min-width: 1024px) {
-	
-	/********************* HEADER **************************/
-	.fondo_productos.capa_trasera {  height:500px; background-position: center top; }
-	.fondo_productos.capa_frontal {    margin-top: -316px; }
-	.subtitulo_seccion h2 { width: 590px; font-size: 35px; line-height: 38px; }
-	
-
+    /********************* HEADER **************************/
+    
+    .fondo_productos.capa_trasera {
+        height: 500px;
+        background-position: center top;
+    }
+    
+    .fondo_productos.capa_frontal {
+        margin-top: -316px;
+    }
+    
+    .subtitulo_seccion h2 {
+        width: 590px;
+        font-size: 35px;
+        line-height: 38px;
+    }
 }
-
 @media screen and (min-width: 1280px) {
-	
-	/********************* HEADER **************************/
-	.subtitulo_seccion h2 { width: 590px; font-size: 35px; line-height: 38px; }
-	.descripcion_productos { width: 49.5%; }
-	.detalle_productos { width: 49.5%; }
-
+    /********************* HEADER **************************/
+    
+    .subtitulo_seccion h2 {
+        width: 590px;
+        font-size: 35px;
+        line-height: 38px;
+    }
+    
+    .descripcion_productos {
+        width: 49.5%;
+    }
+    
+    .detalle_productos {
+        width: 49.5%;
+    }
 }
-
 @media screen and (min-width: 1400px) {
-	
-	/********************* HEADER **************************/
-	.fondo_productos.capa_trasera {  height:600px; background-position: center top; }
-
+    /********************* HEADER **************************/
+    
+    .fondo_productos.capa_trasera {
+        height: 600px;
+        background-position: center top;
+    }
 }

@@ -4,11 +4,15 @@
 <div class="container mb-3">
     <div class="row">
 
-        <div class="col-md-10 ">
+        <div class="col-md-5 ">
             <h5 class="text-secondary"><b>{{$totalNoticias}}</b> Noticias en la base de datos.</h5>
         </div>
-
-
+        <div class="col-md-5">
+            {{ Form::open(['url' => 'admin/noticias', 'method' => 'GET', 'class' => 'form-inline'])}}
+                {{ Form::text('titleSearch', null, ['class' => 'form-control form-control-sm ml-sm-2', 'placeholder' => 'Buscar Noticia']) }}
+                <button class="btn btn-default my-2 my-sm-0 btn-sm" type="submit"><i class="fas fa-search"></i></button>
+                {{ Form::close() }}
+            </div>
         <div class="col-md-2">
             <div class="boton-nueva-noticia">
                 <a class="" href="{{route('admin.noticias-ocultas')}}" title="Ver noticias ocultas"><i class="fas fa-eye-slash"></i></a>
@@ -16,6 +20,8 @@
         </div>
     </div>
 </div>
+
+
 
 <div class="container">
     <table class="table table-hover">
@@ -58,12 +64,16 @@
                 
             </tr>
         </tbody>
+        
+        
+        
         @empty
         <div class="alert alert-info" role="alert">
             <h3>No hay Noticias cargadas en la base de datos</h3>
         </div>
         @endforelse
     </table>
+    
 </div>
 
 @endsection

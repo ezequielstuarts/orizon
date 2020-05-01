@@ -14,3 +14,30 @@
 nav .fas {
     padding-right: 10px;
 }
+
+.verImagen {
+    padding-bottom: 20px;
+}
+
+.ocultar {
+    display: none;
+}
+
+.animated {
+    -webkit-transition: .3s ease-out;
+    -moz-transition: .3s ease-out;
+    -ms-transition: .3s ease-out;
+    -o-transition: .3s ease-out;
+    transition: .3s ease-out;
+}
+
+.form-inline .form-control {
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 0px;
+}
+
+.form-inline .form-control:focus,
+.btn:focus {
+    box-shadow: none;
+}

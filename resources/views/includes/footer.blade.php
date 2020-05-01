@@ -1,5 +1,4 @@
 <footer>
-    
     <div class="container" style="padding-top:200px;">
       <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-12">
@@ -21,9 +20,8 @@
               <li class="{{ Request::is( 'novedades') ? 'font-weight-bold' : '' }}">
                 <a href="{{ URL::to( 'novedades') }}">Novedades</a>
               </li>
-
               
-              <div class="col-100"><a href="contacto.html" class="boton-azul">¿querés vender orizon?</a></div>
+              <div class="col-100"><a href="contacto" class="boton-azul">¿querés vender orizon?</a></div>
               <div class="fila" style="padding-top:130px;">
                 <a href="#popup-legales" class="popup-link">Términos y Condiciones</a>
               </div>
@@ -49,7 +47,8 @@
     
     </div>
     <div class="col-lg-5 col-md-12 col-sm-12">
-    <form class="form-orizon" action="enviar.php" method="post" style="margin-top:100px;">
+    <form class="form-orizon" action="{{route('enviar-contacto')}}" method="post" style="margin-top:100px;">
+      {{csrf_field()}}
      
     <input class="col-100" type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
     <input class="col-50-der" type="text" id="telefono" name="telefono" placeholder="Teléfono" required pattern="([0-9]+){9}" title="Ingresa el código de área Ej: 011 4444 5555">

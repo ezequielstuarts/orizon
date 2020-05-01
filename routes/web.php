@@ -31,7 +31,14 @@ Route::get('donde-estamos', function () {
 Route::get('puntos-de-venta', function () {
     return view('puntos-de-venta');
 });
+Route::get('contacto', function () {
+    return view('contacto');
+});
+
 Route::get('novedades', 'NoticiasController@index')->name('novedades');
+
+Route::post('enviar-contacto', "ContactController@enviar")->name('enviar-contacto');
+Route::post('enviar-contacto-ventas', "ContactController@ventas")->name('enviar-contacto-ventas');
 
 // Auth::routes();
 Auth :: routes (['register' => false, 'confirm' => false, 'reset' => false]);

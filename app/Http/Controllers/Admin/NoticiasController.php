@@ -10,6 +10,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Noticia;
 
+use App\Http\resources\Noticias as NoticiasResource;
+
 class NoticiasController extends Controller
 {
     /**
@@ -17,12 +19,18 @@ class NoticiasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $title = $request['titleSearch'];
+        
+
         $ruta = '/storage/imagenes/img_noticias';
         $totalNoticias = count(Noticia::get());
-        $noticias = Noticia::where('status', 'PUBLISHED')->orderBy('created_at', 'desc')->get();
-        return view('admin.noticias.index', ['noticias' => $noticias, 'ruta' => $ruta, 'totalNoticias' => $totalNoticias]);
+        
+        $noticias = Noticia::where('status', 'PUBLISHED')->orderBy('date', 'desc')
+        ->title($title)->get();
+
+        return view('admin.noticias.index', ['noticias' => $noticias, 'ruta' => $ruta, 'totalNoticias' => $totalNoticias, 'title' => $title]);
     }
     
     public function ocultas()
@@ -89,8 +97,9 @@ class NoticiasController extends Controller
    
     public function edit($id)
     {
+        $ruta = '/storage/imagenes/img_noticias';
         $noticia = Noticia::find($id);
-        return view('admin.noticias.edit', ['noticia' => $noticia]);
+        return view('admin.noticias.edit', ['noticia' => $noticia, 'ruta' => $ruta]);
     }
 
    
@@ -156,5 +165,19 @@ class NoticiasController extends Controller
         
         $noticia->delete();
         return redirect('admin/noticias-ocultas')->with('info', 'Noticia Eliminada');
+    }
+
+    public function getNoticias()
+    {
+        $noticias = Noticia::all();
+        if($noticias)
+        {
+            return NoticiasResource::collection($noticias);
+        }
+        else
+        {
+            return response()->json(['Error' => 'Algo salió mal'], 404);
+        }
+        
     }
 }

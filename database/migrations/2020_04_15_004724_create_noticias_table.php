@@ -18,13 +18,11 @@ class CreateNoticiasTable extends Migration
             $table->datetime('date');
             $table->string('title', 256);
             $table->string('slug', 256)->unique();
-
             $table->mediumText('subtitle')->nulleable();
             $table->mediumText('copete')->nulleable();
             $table->mediumText('contenido')->nulleable();
             $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('PUBLISHED');
             $table->string('img', 128)->nulleable();
-            
             $table->timestamps();
         });
     }
