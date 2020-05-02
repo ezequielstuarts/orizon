@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body">
                     {!! Form::model($noticia, ['route' => ['noticias.update', $noticia->id], 'method' => 'PUT', 'files' => 'true']) !!}
-                        @include('admin.noticias.partials.form')
+                        @include('admin.noticias.partials.edit-form')
                     {!! Form::close() !!}
                 </div>
             </div>

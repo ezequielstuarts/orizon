@@ -21,7 +21,7 @@
 								
 								<div class="titulo_noticia"><h1>{{$noticia->title}}</h1></div>
 								
-								<div class="fecha_noticia"><p> {{ $noticia->created_at->isoFormat('MMMM YYYY', 'Do MMMM')  }} </p></div>
+								<div class="fecha_noticia"><p> {{date('d-m-Y', strtotime($noticia->date))}} </p></div>
 								
 								<div class="separador"> <hr> </div>
 								
@@ -52,7 +52,7 @@
 								
 								<div class="titulo_noticia"><h1>{{$noticia->title}}</h1></div>
 								
-								<div class="fecha_noticia"><p> {{ $noticia->created_at->isoFormat('MMMM YYYY', 'Do MMMM')  }} </p></div>
+								<div class="fecha_noticia"><p> {{date('d-m-Y', strtotime($noticia->date))}} </p></div>
 								
 								<div class="separador"> <hr> </div>
 								

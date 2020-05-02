@@ -27,7 +27,7 @@ class NoticiasController extends Controller
         $ruta = '/storage/imagenes/img_noticias';
         $totalNoticias = count(Noticia::get());
         
-        $noticias = Noticia::where('status', 'PUBLISHED')->orderBy('date', 'desc')
+        $noticias = Noticia::where('status', 'PUBLISHED')->orderBy('date', 'DESC')
         ->title($title)->get();
 
         return view('admin.noticias.index', ['noticias' => $noticias, 'ruta' => $ruta, 'totalNoticias' => $totalNoticias, 'title' => $title]);
@@ -36,7 +36,7 @@ class NoticiasController extends Controller
     public function ocultas()
     {
         $ruta = '/storage/imagenes/img_noticias';
-        $noticias = Noticia::where('status', 'DRAFT')->orderBy('created_at', 'desc')->get();
+        $noticias = Noticia::where('status', 'DRAFT')->orderBy('date', 'DESC')->get();
         return view('admin.noticias.noticias-ocultas', ['noticias' => $noticias, 'ruta' => $ruta]);
     }
 

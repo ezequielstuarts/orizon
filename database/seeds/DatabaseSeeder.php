@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         // factory(App\Noticia::class, 20)->create();
         // $this->call(UserSeeder::class);
-        $this->call(NoticiasSeeder::class);
+        // $this->call(NoticiasSeeder::class);
+        $this->call(MensajesSeeder::class);
     }
 }

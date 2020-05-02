@@ -30,6 +30,9 @@
                     <li class="nav-item {{ Request::is( 'admin/noticias/create') ? 'activado' : '' }}">
                         <a class="nav-link" href="{{ URL::to('admin/noticias/create') }}"><i class="fas fa-plus-square"></i>Nueva Noticia</a>
                     </li>                   
+                    <li class="nav-item {{ Request::is( 'admin/mensajes') ? 'activado' : '' }}">
+                        <a class="nav-link" href="{{ URL::to('admin/mensajes') }}"><i class="fas fa-envelope"></i>Mensajes</a>
+                    </li>                   
                     
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

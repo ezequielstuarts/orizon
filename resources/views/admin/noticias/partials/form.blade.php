@@ -5,26 +5,6 @@
 <link rel="stylesheet" href="{{asset('/vendor/datepicker/bootstrap-datepicker.standalone.css')}}">
 @endsection
 
-@if(isset($noticia->date))
-<div class="form-group">
-    <div class="input-group date">
-        <input type="text" class="form-control datepicker" name="date" value="{{date('d-m-Y', strtotime($noticia->date))}} ">
-        <div class="input-group-append">
-            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-        </div>
-    </div>
-</div>
-@else
-<div class="form-group">
-    <div class="input-group date">
-        <input type="text" class="form-control datepicker" name="date">
-        <div class="input-group-append">
-            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-        </div>
-    </div>
-</div>
-@endif
-
 <div class="form-group">
     {{ Form::text('title', null, ['class' => 'form-control', 'id' => 'title', 'placeholder'=>'Título']) }}
 </div>
@@ -37,18 +17,23 @@
     {{ Form::text('copete', null, ['class' => 'form-control', 'id' => 'copete', 'placeholder'=>'Copete']) }}
 </div>
 
-<div class="form-group">
-    {{ Form::label('img', 'Imagen') }}
-    {{ Form::file('img') }} 
+<div class="form-group row">
+    <div class="col-8">
+        {{ Form::label('img', 'Imagen de la noticia') }}
+        {{ Form::file('img') }}
+        
+    </div> 
+   <div class="col-4">
     @isset($ruta)
-        <span><a id="textVer" class="float-right" href="#">Ver imágen actual</a></span>
-        <span><a id="textOcultar" class="float-right ocultar" href="#">Ocultar Imagen</a></span>
+        <span id="btn-mostrar" class="float-right">Ver imágen actual</span>
+        <span id="btn-ocultar" class="float-right">Ocultar Imagen</span>
     @endisset
+   </div>
 </div>
 
 @isset($ruta)
 <div class="verImagen ocultar">
-    <img style="width:100%" class="img-responsive" src="{{$ruta}}/{{$noticia->img}}">
+    <img id="imag-noticia" style="width:100%" class="img-responsive" src="{{$ruta}}/{{$noticia->img}}">
 </div> 
 @endisset
 
@@ -87,20 +72,24 @@
             todayHighlight: true
         });
     </script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        var textVer = document.getElementById('textVer');
-        var verImagen = document.querySelector('.verImagen');
-        textVer.addEventListener('click', function(){
-            verImagen.classList.toggle("ocultar");
-            textVer.classList.toggle("ocultar");
-            textOcultar.classList.toggle("ocultar");
-        });
-        textOcultar.addEventListener('click', function(){
-            verImagen.classList.toggle("ocultar");
-            textVer.classList.toggle("ocultar");
-            textOcultar.classList.toggle("ocultar");
-        });
+        $(function() { 
+            $(".verImagen").hide();
+            $("#btn-ocultar").hide();
+            $("#btn-mostrar").on("click", function() {
+                $(".verImagen").slideToggle();
+                $("#btn-mostrar").hide();
+                $("#btn-ocultar").show();
+            });
+            $("#btn-ocultar").on("click", function() {
+                $(".verImagen").slideToggle();
+                $("#btn-mostrar").show();
+                $("#btn-ocultar").hide();
+            }); 
+         });
     </script>
+
+    
     
 @endsection

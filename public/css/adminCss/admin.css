@@ -19,9 +19,10 @@ nav .fas {
     padding-bottom: 20px;
 }
 
-.ocultar {
+
+/* .ocultar {
     display: none;
-}
+} */
 
 .animated {
     -webkit-transition: .3s ease-out;
@@ -40,4 +41,11 @@ nav .fas {
 .form-inline .form-control:focus,
 .btn:focus {
     box-shadow: none;
+}
+
+#btn-mostrar,
+#btn-ocultar {
+    cursor: pointer;
+    background-color: #efefef;
+    padding: 5px 15px;
 }

@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'noticias.store', 'files' => 'true']) !!}
-                        @include('admin.noticias.partials.form')
+                        @include('admin.noticias.partials.new-form')
                     {!! Form::close() !!}
                 </div>
             </div>
