@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
+use App\Mensaje;
+use App\MensajeVentas;
 
 class ContactController extends Controller
 {
@@ -27,8 +29,7 @@ class ContactController extends Controller
         // ];
 
         // $this->validate($request, $reglas, $mensajes);
-
-        // $newMail = new ContactEmail();
+        
 
         // $newMail->apellido = $request["apellido"];
         // $newMail->nombre = $request["nombre"];
@@ -52,7 +53,11 @@ class ContactController extends Controller
             $msj->to($for);
         });
         
-        return view('/');
+        
+        $mensaje = Mensaje::create($request->all());
+        $mensaje->save();
+
+        return redirect('/');
     }
 
 
@@ -91,16 +96,18 @@ class ContactController extends Controller
 
         // $newMail->save();
 
-        dd($request->all());
         $subject = "Asunto del correo";
         $for = "elzeke55@gmail.com";
         Mail::send('email.formulario-de-contacto-ventas',$request->all(),
         function($msj) use($subject,$for){
-            $msj->from("elzeke55@gmail.com","Mensaje desde el fomulario de orizon.com.ar");
+            $msj->from("elzeke55@gmail.com","Mensaje desde el fomulario de vendedores de orizon.com.ar");
             $msj->subject($subject);
             $msj->to($for);
         });
         
-        return view('contacto');
+        $mensaje = MensajeVentas::create($request->all());
+        $mensaje->save();
+
+        return redirect('/');
     }
 }

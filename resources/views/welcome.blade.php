@@ -20,6 +20,7 @@
     <body>
         <div id="load-overlay" class="overlay"></div>
         @include('includes.nav-bar')
+        
         {{-- @include('includes.header')
         @include('includes.que-es') --}}
         @yield('content')

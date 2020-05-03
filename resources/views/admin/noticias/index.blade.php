@@ -26,7 +26,7 @@
 <div class="container">
     <table class="table table-hover">
         <thead>
-            <tr style="background-color:#13b7da;">
+            <tr class="tr-background">
                 <th colspan="col">Fecha</th>
                 <th colspan="col">Titulo</th>
                 <th colspan="col">Imagen</th>

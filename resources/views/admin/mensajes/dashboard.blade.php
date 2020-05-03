@@ -1,59 +1,59 @@
 @extends('admin.admin')
 @section('content')
 
+@section('styles')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+@endsection
+
 
 <div class="container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Mensajes Sin Responder</a>
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Mensajes desde el formulario de contacto</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Mensajes Respondidos</a>
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Mensajes desde el formulario de ventas</a>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="container mt-2">
-                <table class="table table-striped table-hover">
+            <div class="container mt-3">
+                <table id="mensajes" class="display" style="width:100%">
                     <thead>
-                      <tr>
-                        <th scope="col">Recibido</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Localidad</th>
-                        {{-- <th scope="col">Telefono</th>
-                        <th scope="col">E-mail</th>
-                        <th scope="col">Empresa</th>
-                        <th scope="col">Mensaje</th> --}}
-                      </tr>
+                        <tr class="tr-background">
+                            <th></th>
+                            <th>Fecha</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                        </tr>
                     </thead>
-                    <tbody>
-                        @foreach ($mensajesNoResp as $noresp)
-                            <tr>
-                                <th>{{$noresp->created_at}}</th>
-                                <td> {{$noresp->nombre}} </td>
-                                <td> {{$noresp->localidad}} - {{$noresp->pais}} - {{$noresp->provincia}} </td>
-                                {{-- <td> {{$noresp->telefono}} </td>
-                                <td> {{$noresp->email}} </td>
-                                <td> {{$noresp->empresa}} </td>
-                                <td> {{$noresp->mensaje}} </td> --}}
-                            </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
+                </table>
             </div>
-            <ul>
-                
-            </ul>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <ul>
-                @foreach ($mensajesResp as $resp)
-                    <li> {{$resp->nombre}} </li>
-                @endforeach
-            </ul>
+            <div class="container mt-3">
+                <table id="mensajesVentas" class="display" style="width:100%">
+                    <thead>
+                        <tr class="tr-background">
+                            <th></th>
+                            <th>Fecha</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Razon</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
       </div>
 </div>
 
-
 @endsection
+@section('scripts')
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    @include('admin.mensajes.includes.mensajes')
+    @include('admin.mensajes.includes.mensajesVentas')
+@endsection
+
+

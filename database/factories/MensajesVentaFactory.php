@@ -5,7 +5,7 @@
 use App\Model;
 use Faker\Generator as Faker;
 
-$factory->define(App\Mensaje::class, function (Faker $faker) {
+$factory->define(App\MensajeVentas::class, function (Faker $faker) {
     $localidad = $faker->sentence(2);
     return [
         'nombre' => $faker->name($gender = 'male'|'female'),
@@ -14,11 +14,8 @@ $factory->define(App\Mensaje::class, function (Faker $faker) {
         'pais' => $localidad,
         'provincia' => $localidad,
         'localidad' => $localidad,
-        'empresa' => $localidad,
+        'asunto' => $faker->randomElement(['Quiero ser distribuidor', 'Consulta', 'Exportación', 'Trabajar en Orizon']),
         'mensaje' => $faker->text(600),
         'status' => $faker->randomElement(['RESP', 'NORESP'])
     ];
 });
-
-
-
