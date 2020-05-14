@@ -23,7 +23,7 @@ class NoticiasSeeder extends Seeder
             ]);
             
             DB::table('noticias')->insert([
-            'date' => '2020-04-28',
+            'date' => '201-12-28',
             'title' => 'Razones para elegir Orizon',
             'subtitle' => 'ORIZON EN EL MEDIO AMBIENTE',
             'copete' => '',
@@ -34,7 +34,7 @@ class NoticiasSeeder extends Seeder
             ]);
             
             DB::table('noticias')->insert([
-            'date' => '2020-04-28',
+            'date' => '2019-03-25',
             'title' => 'Running Motivacional',
             'subtitle' => 'ORIZON SPONSOR CLUB DE CHICAS RUNNING & PIA SLAPKA',
             'copete' => '',
@@ -45,7 +45,7 @@ class NoticiasSeeder extends Seeder
             ]);
             
             DB::table('noticias')->insert([
-            'date' => '2020-04-28',
+            'date' => '2019-03-25',
             'title' => 'Orizon y su pureza',
             'subtitle' => 'LA NARURALEZA Y SUS PROPIEDADES EN ORIZON',
             'copete' => '',
@@ -56,7 +56,7 @@ class NoticiasSeeder extends Seeder
             ]);
             
             DB::table('noticias')->insert([
-            'date' => '2020-04-28',
+            'date' => '2019-03-25',
             'title' => 'Rugby Playero Rada Tilly',
             'subtitle' => 'ORIZON SPONSOR RUGBY',
             'copete' => '',
@@ -67,7 +67,7 @@ class NoticiasSeeder extends Seeder
             ]);
             
             DB::table('noticias')->insert([
-            'date' => '2020-04-28',
+            'date' => '2019-08-05',
             'title' => 'Una súper receta para mantenerte hidratada y con energía',
             'subtitle' => 'AGUA DE LIMÓN CON SEMILLAS DE CHÍA, QUE NO FALTE EN TU BOLSO.',
             'copete' => '',
@@ -78,7 +78,7 @@ class NoticiasSeeder extends Seeder
             ]);
             
             DB::table('noticias')->insert([
-            'date' => '2020-04-28',
+            'date' => '2019-08-05',
             'title' => 'El agua mineral es la nueva aliada para tu rutina de belleza.',
             'subtitle' => 'LAS PROPIEDADES DEL AGUA MINERAL CAUTIVAN EN EL ORIENTE, PARA EL CUIDADO DE LA PIEL',
             'copete' => '',
@@ -89,7 +89,7 @@ class NoticiasSeeder extends Seeder
             ]);
             
             DB::table('noticias')->insert([
-            'date' => '2020-04-28',
+            'date' => '2019-08-05',
             'title' => 'H2O IS THE NEW BLACK',
             'subtitle' => 'PASA TODO MENOS LA MODA, QUE ES COMO EL AGUA, SIEMPRE ESTÁ A LA VANGUARDIA.',
             'copete' => '',
@@ -100,7 +100,7 @@ class NoticiasSeeder extends Seeder
             ]);
             
             DB::table('noticias')->insert([
-            'date' => '2020-04-28',
+            'date' => '2019-09-25',
             'title' => 'El Guanaco, herencia de la Patagonia.',
             'subtitle' => 'ARGENTINA CUENTA CON LA MAYOR CANTIDAD DE GUANACOS DEL PLANETA, UN ANIMAL SILVESTRE DESCENDIENTE DE LA LLAMA QUE SÓLO EXISTE EN CINCO PAÍSES DE AMÉRICA DEL SUR. EN PAÍSES COMO BOLIVIA, PARAGUAY Y PERÚ QUEDAN POCOS EJEMPLARES, LO QUE LLEVÓ A DECLARAR A LA ESPECIE EN PELIGRO DE EXTINCIÓN.',
             'copete' => '',
@@ -111,8 +111,8 @@ class NoticiasSeeder extends Seeder
             ]);
             
             DB::table('noticias')->insert([
-            'date' => '2020-04-28',
-            'title' => 'El agua => Un derecho de todos.',
+            'date' => '2019-09-25',
+            'title' => 'El agua, Un derecho de todos.',
             'subtitle' => 'EN JULIO DE 2010, LA ASAMBLEA GENERAL DE LAS NACIONES UNIDAS RECONOCIÓ EL DERECHO AL AGUA Y AL SANEAMIENTO, DETERMINANDO QUE TODO SER HUMANO TIENE DERECHO A ENTRE 50 Y 100 LITROS DE AGUA SEGURA Y ASEQUIBLE POR PERSONA Y DÍA Y QUE SU ACCESO ESTÉ A MENOS DE MIL METROS O A UN MÁXIMO DE MEDIA HORA DE SU HOGAR. ¿QUÉ PLANTEAN PARA LOGRARLO?',
             'copete' => '',
             'contenido' => '<p>Para lograr que el derecho a un agua asequible y segura en el corto plazo, se cre&oacute; el &ldquo;Objetivo de Desarrollo Sostenibles (ODS) 6 que busca garantizar la disponibilidad de agua y su gesti&oacute;n sostenible y el saneamiento para todos debido a que la escasez de agua afecta actualmente a m&aacute;s del 40% de la poblaci&oacute;n mundial.<br /> <br /> Es por eso que las metas de las ODS cubren desde los aspectos del ciclo del agua, as&iacute; como tambi&eacute;n concientizar desde la educaci&oacute;n generando diferentes medidas medioambientales.<br /> <br /> Es por esta necesidad que nacen la celebraci&oacute;n del D&iacute;a Mundial del Agua que se realiza cada 22 de marzo acompa&ntilde;ada de una campa&ntilde;a p&uacute;blica que trata de crear conciencia sobre los problemas del agua, centr&aacute;ndose en un tema particular y tratando de inspirar actuaciones.<br /> <br /> En Orizon entendemos la problem&aacute;tica y apostamos a tener un agua pura, natural y Premium y expandirnos cada vez m&aacute;s para estar m&aacute;s cerca de nuestros consumidores.</p>',
@@ -122,8 +122,8 @@ class NoticiasSeeder extends Seeder
             ]);
             
             DB::table('noticias')->insert([
-            'date' => '2020-04-28',
-            'title' => 'Tomar conciencia de un recurso finito e indispensable => el agua.',
+            'date' => '2019-09-25',
+            'title' => 'Tomar conciencia de un recurso finito e indispensable, el agua.',
             'subtitle' => 'TANTO EL PLANETA TIERRA COMO EL SER HUMANO, SON 70% AGUA; QUIZÁS SEA POR ESO QUE LO RECOMENDABLE PARA TENER UNA DIETA SALUDABLE Y UNA LARGA VIDA SEA EL COMER ALIMENTOS CON UN PORCENTAJE DEL 70 % EN AGUA. PERO LO VERDADERAMENTE IMPORTANTE ES CUIDAR EL AGUA Y EN ESTA NOTA TE DECIMOS CÓMO Y POR QUÉ HACERLO. LA NECESIDAD DEL AGUA, TANTO PARA EL PLANETA TIERRA COMO PARA EL SER HUMANO ES PRIMORDIAL; ES POR ESO QUE ESTE BIEN TAN NECESARIO ES CONOCIDO COMO “EL ORO LÍQUIDO” DEBIDO AL VALOR QUE REPRESENTA PARA EL ECOSISTEMA DE LA VIDA.',
             'copete' => '',
             'contenido' => '<p>Por eso debemos replantearnos el uso que hacemos del agua en nuestras vidas cotidianas con el fin de cuidar este recurso finito para las generaciones venideras, ya que si bien, como comentamos, el 70% del planeta es agua solo es 1% representa agua dulce, es decir, consumible, para las especies vivientes y un 3% es agua que se encuentra en los polos en forma de hielo.<br /> En este contexto tambi&eacute;n es necesario remarcar que adem&aacute;s de ser un recurso vital, es tambi&eacute;n un recurso econ&oacute;mico e industrial que se utiliza para innumerables actividades industriales donde su pureza termina siendo afectada.<br /> <br /> <strong>Pero &iquest;por qu&eacute; es agua es una mol&eacute;cula tan crucial para la vida?</strong><br /> Varias propiedades qu&iacute;micas del agua hacen que sea indispensable para los seres vivos, ya que el agua no s&oacute;lo puede disolver casi cualquier coca, sino que tambi&eacute;n es uno de los pocos materiales que pueden existir en estado s&oacute;lido, l&iacute;quido y gaseoso dentro de un peque&ntilde;o rango de temperaturas.<br /> <br /> <strong>&iquest;Qu&eacute; es lo que proponemos desde Orizon?</strong><br /> En principio ser conscientes que, aunque parezca que disponemos de forma ilimitada del agua, es todo lo contrario. La tierra cada vez est&aacute; m&aacute;s caliente, generando desertizaci&oacute;n en zona donde antes gozaban de r&iacute;os y pantanos, lo que se suma la imposibilidad de poder cultivar y regar la tierra.<br /> Entender que ahorrar agua es suma importancia. Con peque&ntilde;os cambios ayudamos un mont&oacute;n y ahorramos miles de litros por d&iacute;a. Podemos utilizar reguladores en los grifos, realizar duchas r&aacute;pidas, cepillarnos los dientes o afeitarnos con la canilla cerrada, por nombrar solo unos ejemplos.<br /> Cerramos esta nota con una frase del antrop&oacute;logo Loran Eisely que sostiene que;<br /> <strong>&ldquo;Si hay magia en este planeta, est&aacute; contenida en el agua&rdquo;.</strong></p>',
@@ -133,7 +133,7 @@ class NoticiasSeeder extends Seeder
             ]);
             
             DB::table('noticias')->insert([
-            'date' => '2020-04-28',
+            'date' => '2019-08-10',
             'title' => 'Orizon galardonada en los premios APSAL 2019',
             'subtitle' => 'EL PASADO 2 DE OCTUBRE EN LA CIUDAD DE BUENOS AIRES SE CELEBRARON LOS PREMIOS APSAL 2019. ORIZON ESTUVO PRESENTE Y FUE GALARDONADO EN LA CATEGORÍA AGUAS POR SU PRODUCTO AGUA MINERAL NATURAL DE MANANTIAL DE TIERRAS ORGÁNICAS.',
             'copete' => '',
@@ -144,7 +144,7 @@ class NoticiasSeeder extends Seeder
             ]);
             
             DB::table('noticias')->insert([
-            'date' => '2020-04-28',
+            'date' => '2019-10-29',
             'title' => 'Participamos del evento; Don Bosco Corre por los Jóvenes y las Familias.',
             'subtitle' => 'ORIZON PARTICIPÓ DE LA ACTIVIDAD DON BOSCO CORRE, EN CALETA OLIVIA. UN EVENTO QUE CONVOCA A LOS PARTICIPANTES A INCULCAR VALORES SOBRE LA IMPORTANCIA DE LA VIDA DE LOS JÓVENES.',
             'copete' => 'El pasado lunes 21 de Octubre se llevó a cabo la actividad Don Bosco Corre por los Jóvenes y las Familias en la localidad de Caleta Olivia. La convocatoria reunió gran cantidad de corredores y aficionados que se juntaron para ayudar a continuar con la obra Don Bosco, que se basa en inculcar valores y ser conscientes de la importancia de la vida de los jóvenes.',
@@ -165,26 +165,5 @@ class NoticiasSeeder extends Seeder
             'img' => 'JToVR1xNAILzV69KKYdUIFHn5iMhWwPJPBpEqhns.png'
             ]);
             
-            DB::table('noticias')->insert([
-            'date' => '1980-06-11',
-            'title' => 'Condiciones Aval Rural Octubre 2019',
-            'subtitle' => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAa',
-            'copete' => '',
-            'contenido' => '',
-            'slug' => 'condiciones-aval-rural-octubre-2019',
-            'status' => 'PUBLISHED',
-            'img' => '86GQwyMN86hDCNOD2UAWKRVWpMK659v2rZYwkz2g.jpeg'
-            ]);
-            
-            DB::table('noticias')->insert([
-            'date' => '2020-04-30',
-            'title' => 'titulo',
-            'subtitle' => 'subtitulo',
-            'copete' => 'copete',
-            'contenido' => '',
-            'slug' => 'titulo',
-            'status' => 'PUBLISHED',
-            'img' => '7ByX3lqdU0v30g9j23bpvvYHqTFIcp55xNit5Lyl.png'
-            ]);
     }
 }
