@@ -1,4 +1,4 @@
-<p align="center"><img src="https://www.orizon.com.ar/img/logo_barra.png" width="400"></p>
+<p align="center"><img src="https://www.orizon.com.ar/img/logo_barra.png" width="300"></p>
 
 ## About Orizon
 
