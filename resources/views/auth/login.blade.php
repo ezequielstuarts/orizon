@@ -7,6 +7,10 @@
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
                 <div class="card-body">
+                    <div class="container mt-3">
+                        <p class="alert alert-info text-center">Si es invitado y quiere ver el sistema puede ingresar con el usuario <br>"<b>invitado@invitado.com</b>" y contraseña "<b>invitado</b>"</p>
+                    </div>
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
