@@ -38,10 +38,12 @@
             <tr>
                 <td width="130px">{{date('d-m-Y', strtotime($noticia->date))}}</td>
                 <td><b style="font-size:18px;">{{$noticia->title}}</b>
-                    <hr>
-                    <p class="text-secondary" style="font-size:12px;"><b>Subtitulo: </b>{{$noticia->subtitle}}</p>
+                    @if ($noticia->subtitle != NULL)
+                        <hr>
+                        <p class="text-secondary" style="font-size:12px;"><b>Subtitulo: </b>{{$noticia->subtitle}}</p>
+                    @endif
                 </td>
-                
+
                 <td>
                     @if (!empty($noticia->img))
                         <img style="width:100px" src="{{$ruta}}/{{$noticia->img}}"/>
@@ -49,31 +51,31 @@
                         <img style="width:100px" src="/img/noimg.png" class="card-img-top">
                     @endif
                 </td>
-                                    
+
                 <td width="10px">
                     <a href="{{ route('noticias.show', $noticia->id) }}" class="btn btn-sm btn-outline-secondary">Ver</a>
                 </td>
-                
+
                 <td width="10px">
                     <a href="{{ route('noticias.edit', $noticia->id) }}" class="btn btn-sm btn-outline-secondary">Editar</a>
                 </td>
-                
+
                 <td width="10px">
                     <a href="{{ route('noticias.ocultar', $noticia->id) }}" class="btn btn-sm btn-outline-warning">Ocultar</a>
                 </td>
-                
+
             </tr>
         </tbody>
-        
-        
-        
+
+
+
         @empty
         <div class="alert alert-info" role="alert">
             <h3>No hay Noticias cargadas en la base de datos</h3>
         </div>
         @endforelse
     </table>
-    
+
 </div>
 
 @endsection

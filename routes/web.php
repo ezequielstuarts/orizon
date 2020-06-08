@@ -60,3 +60,8 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('/api/getMensajes', 'Admin\ApiController@getMensajes');
     Route::get('/api/getMensajesVentas', 'Admin\ApiController@getMensajesVentas');
 });
+
+Route::get('/init', function () {
+    Artisan::call('storage:link');
+    return 'ready!';
+});

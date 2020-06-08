@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     Editar noticia.
+                    <a href=" {{ route('noticias.index') }} " class="btn btn-sm btn-danger float-right">Cancelar</a>
                 </div>
                 <div class="card-body">
                     {!! Form::model($noticia, ['route' => ['noticias.update', $noticia->id], 'method' => 'PUT', 'files' => 'true']) !!}

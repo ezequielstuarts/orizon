@@ -22,17 +22,16 @@ class NoticiasController extends Controller
     public function index(Request $request)
     {
         $title = $request['titleSearch'];
-        
 
         $ruta = '/storage/imagenes/img_noticias';
         $totalNoticias = count(Noticia::get());
-        
+
         $noticias = Noticia::where('status', 'PUBLISHED')->orderBy('date', 'DESC')
         ->title($title)->get();
 
         return view('admin.noticias.index', ['noticias' => $noticias, 'ruta' => $ruta, 'totalNoticias' => $totalNoticias, 'title' => $title]);
     }
-    
+
     public function ocultas()
     {
         $ruta = '/storage/imagenes/img_noticias';
@@ -56,28 +55,37 @@ class NoticiasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NoticiaStoreRequest $request)
     {
-        $reglas = [
-            "date" => "required",
-            "title" => "required",
-            'img' => 'required|file|mimes:jpg,jpeg,png'
-        ];
-        $mensajes = [
-            "required" => "Debe ingresar :attribute de la noticia.",
-        ];
-        
-        $this->validate($request, $reglas, $mensajes);
+        $noticia = new Noticia();
+        $noticia->title = $request['title'];
+        $slug = str_slug($request["title"]);
+        $noticia->slug;
 
-        $noticia = Noticia::create($request->all());
-        $carpeta = 'imagenes/img_noticias';
-        $rutaImg = $request->file("img")->store($carpeta, 'public');
-        $nombreImg = basename($rutaImg);
-        $noticia->img = $nombreImg;
-        $noticia->slug = str_slug($request["title"]);
-        
+        if(isset($request['subtitle'])){
+            $noticia->subtitle = $request['subtitle'];
+        }
+        if(isset($request['copete'])){
+            $noticia->copete = $request['copete'];
+        }
+        if(isset($request['contenido'])){
+            $noticia->contenido = $request['contenido'];
+        }
+        if($request->hasFile("img")) {
+            $carpeta = '/public/imagenes/img_noticias';
+            $nombreImg = $slug.'-'.time();
+            $extension = $request->file('img')->extension();
+            $file = $request->file("img")->storeAs($carpeta,$nombreImg.'.'.$extension);
+            $noticia->img = $nombreImg.'.'.$extension;
+        }
+        $date = Carbon::createFromFormat('d-m-Y', $request->date)->toDateString();
+        $noticia->date = $date;
+
+
         $noticia->save();
-        return redirect('admin/noticias')->with('info', 'Noticia creada con exito.');
+        $noticias = Noticia::all();
+        $last = $noticias->last();
+        return redirect()->route('noticias.show', $last->id)->with('info', 'Noticia creada');
     }
 
     /**
@@ -93,8 +101,6 @@ class NoticiasController extends Controller
         return view('admin.noticias.show', ['noticia' => $noticia, 'ruta' => $ruta]);
     }
 
-   
-   
     public function edit($id)
     {
         $ruta = '/storage/imagenes/img_noticias';
@@ -102,11 +108,12 @@ class NoticiasController extends Controller
         return view('admin.noticias.edit', ['noticia' => $noticia, 'ruta' => $ruta]);
     }
 
-   
-    public function update(Request $request, $id)
+
+    public function update(NoticiaUpdateRequest $request, $id)
     {
         $reglas = [
             "title" => "required|string",
+            "img" => "image | mimes:jpg,jpeg,png",
         ];
         $mensajes = [
             "string" => "El campo :attribute debe ser un nombre.",
@@ -118,18 +125,25 @@ class NoticiasController extends Controller
         $noticia = Noticia::find($id);
         $diff = array_diff($request->toArray(), $noticia->toArray());
 
-        if ($request->has('img')) {
-
-            $basename_preview = basename($request->file("img")->store('public/imagenes/img_noticias/'));
-
-            $img = $noticia['img'];
-            Storage::delete('public/imagenes/img_noticias/'.$img);
-            $diff["img"] = $basename_preview;
+        if ($diff['date']) {
+            $date = Carbon::createFromFormat('d-m-Y', $request->date)->toDateTimeString();
+            $diff['date'] = $date;
         }
 
-        $diff['slug'] = str_slug($request["title"]);
+        if ($request->has('title')){
+            $diff['slug'] = str_slug($request["title"]);
+        }
+        if ($request->has('img')) {
+            $img = $noticia['img'];
+            $carpeta = '/public/imagenes/img_noticias/';
+            Storage::delete($carpeta.$img);
+            $nombreImg = $noticia['slug'].'-'.time();
+            $extension = $request->file('img')->extension();
+            $file = $request->file("img")->storeAs($carpeta,$nombreImg.'.'.$extension);
+            $diff["img"] = $nombreImg.'.'.$extension;
+        }
         $noticia->update($diff);
-        return redirect('admin/noticias')->with('info', 'Noticia Actualizada');
+        return redirect()->route('noticias.show', $noticia->id)->with('info', 'Noticia Actualizada');
 
     }
 
@@ -139,7 +153,7 @@ class NoticiasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    
+
     public function ocultar($id)
     {
         $noticia = Noticia::find($id);
@@ -147,7 +161,7 @@ class NoticiasController extends Controller
         $noticia->save();
         return back()->with('info', 'Noticia Ocultada.');
     }
-    
+
     public function mostrar($id)
     {
         $noticia = Noticia::find($id);
@@ -155,14 +169,14 @@ class NoticiasController extends Controller
         $noticia->save();
         return back()->with('info', 'Noticia Mostrada.');
     }
-    
+
     public function destroy($id)
     {
         $noticia = Noticia::find($id);
         $img = $noticia['img'];
-        
+
         Storage::delete('public/imagenes/img_noticias/'.$img);
-        
+
         $noticia->delete();
         return redirect('admin/noticias-ocultas')->with('info', 'Noticia Eliminada');
     }
@@ -178,6 +192,6 @@ class NoticiasController extends Controller
         {
             return response()->json(['Error' => 'Algo salió mal'], 404);
         }
-        
+
     }
 }

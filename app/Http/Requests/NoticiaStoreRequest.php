@@ -23,14 +23,10 @@ class NoticiaStoreRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-            'title'     => 'required',
-            'subtitle'  => 'required',
-            'copete'    => 'required',
-            'contenido' => 'required',
-            'img'       => 'required',
-            'status'    => 'required',
-            'img'       => 'mimes:jpg,jpeg,png'
+        return [
+            "date" => "required",
+            'title' => 'required | unique:noticias,title',
+            'img' => 'required | image | mimes:jpg,jpeg,png'
         ];
     }
 }

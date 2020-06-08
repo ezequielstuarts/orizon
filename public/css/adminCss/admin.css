@@ -45,9 +45,10 @@ nav .fas {
 
 #btn-mostrar,
 #btn-ocultar {
+    margin-top: 30px;
     cursor: pointer;
     background-color: #efefef;
-    padding: 5px 15px;
+    padding: 7px 15px;
 }
 
 td.details-control {
