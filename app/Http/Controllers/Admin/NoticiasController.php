@@ -21,7 +21,7 @@ class NoticiasController extends Controller
      */
     public function index(Request $request)
     {
-        $title = $request['titleSearch'];
+        $title = $request->get('titleSearch');
 
         $ruta = '/storage/imagenes/img_noticias';
         $totalNoticias = count(Noticia::get());
