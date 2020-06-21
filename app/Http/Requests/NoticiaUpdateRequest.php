@@ -23,12 +23,14 @@ class NoticiaUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-            'date'  => 'required',
+        return [
+            'date' => 'required | date_format:d-m-Y',
             'title' => 'required',
+            // 'title' => 'required | unique:noticias,title,' . $this->id,
         ];
+
         if($this->get('img'))
-            $rules = array_merge($rules, ['img' => 'mimes:jpg,jpeg,png']);
-        return $rules;
+            $rules = array_merge($rules, ['img' => 'image | mimes:jpg,jpeg,png']);
+            return $rules;
     }
 }

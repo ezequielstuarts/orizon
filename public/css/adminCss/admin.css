@@ -45,9 +45,10 @@ nav .fas {
 
 #btn-mostrar,
 #btn-ocultar {
+    margin-top: 30px;
     cursor: pointer;
     background-color: #efefef;
-    padding: 5px 15px;
+    padding: 7px 15px;
 }
 
 td.details-control {
@@ -75,4 +76,22 @@ table {
 
 .tr-background {
     background-color: #13b7da;
+}
+
+.card-admin {
+    background-color: #64d6f0;
+    margin-top: 30px;
+}
+
+.card-admin:hover,
+.boton-nueva-noticia a:hover {
+    background-color: #13b7da;
+}
+
+.card-admin h4 {
+    font-weight: 600;
+}
+
+.card-title a {
+    color: rgb(61, 61, 61)!important;
 }

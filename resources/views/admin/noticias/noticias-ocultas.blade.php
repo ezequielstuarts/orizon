@@ -36,7 +36,7 @@
                     <hr>
                     <p class="text-secondary" style="font-size:12px;"><b>Subtitulo: </b>{{$noticia->subtitle}}</p>
                 </td>
-                
+
                 <td>
                     @if (!empty($noticia->img))
                         <img style="width:100px" src="{{$ruta}}/{{$noticia->img}}"/>
@@ -44,31 +44,24 @@
                         <img style="width:100px" src="/img/noimg.png" class="card-img-top">
                     @endif
                 </td>
-                                    
+
                 <td width="10px">
                     <a href="{{ route('noticias.show', $noticia->id) }}" class="btn btn-sm btn-outline-secondary">Ver</a>
                 </td>
-                
+
                 <td width="10px">
                     <a href="{{ route('noticias.edit', $noticia->id) }}" class="btn btn-sm btn-outline-secondary">Editar</a>
                 </td>
-                
+
                 <td width="10px">
-                    <a href="{{ route('noticias.mostrar', $noticia->id) }}" class="btn btn-sm btn-outline-warning">Mostrar</a>
+                    <a href="{{ route('noticias.mostrar', $noticia->id) }}" class="btn btn-sm btn-outline-warning">Hacer visible</a>
                 </td>
-                {{-- <td width="10px">
-                    <form action="{{route('noticias.destroy', $noticia->id)}}" method="post">
-                        {{csrf_field()}}
-                        <input type="hidden" name="id" value="{{$noticia->id}}">
-                        <input class="btn btn-sm btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
-                    </form>
-                </td> --}}
                 <td width="10px">
                     {!! Form::open(['route' => ['noticias.destroy', $noticia->id], 'method' => 'delete']) !!}
                         <button class="btn btn-sm btn-danger">Eliminar</button>
                     {!! Form::close() !!}
                 </td>
-                
+
             </tr>
         </tbody>
         @empty

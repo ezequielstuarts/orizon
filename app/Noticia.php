@@ -9,9 +9,9 @@ class Noticia extends Model
     public $table = "noticias";
     public $primarykey = "id";
     protected $fillable = [
-        'date', 'title', 'subtitle', 'copete', 'contenido', 'img','status'];
+        'date', 'title', 'subtitle', 'copete', 'contenido', 'img','status', 'slug'];
 
-    
+
     public function scopeTitle($query, $title) {
         if($title)
         return $query->where('title', 'LIKE', "%$title%")->orwhere('subtitle', 'LIKE', "%$title%")->orwhere('contenido', 'LIKE', "%$title%");
