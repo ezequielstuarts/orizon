@@ -95,12 +95,3 @@ table {
 .card-title a {
     color: rgb(61, 61, 61)!important;
 }
-
-.mensaje-sweet {
-    text-align: left;
-    line-height: 20px;
-}
-
-.mensaje-sweet h3 {
-    line-height: 20px;
-}

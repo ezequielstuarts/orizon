@@ -22,10 +22,5 @@
         "sass-loader": "^8.0.0",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
-    },
-    "dependencies": {
-        "@babel/core": "^7.10.3",
-        "@babel/preset-env": "^7.10.3",
-        "datatables": "^1.10.18"
     }
 }
