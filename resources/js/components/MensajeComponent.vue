@@ -21,7 +21,7 @@
 
                     <th>
                         <form @submit.prevent="">
-                            <button class="btn btn-primary btn-sm" @click="leer(mensaje)">Ver</button>
+                            <button class="btn btn-primary btn-sm" @click="leer(mensaje)"><i class="fas fa-eye"></i></button>
                         </form>
                     </th>
                     <th>
@@ -39,7 +39,7 @@
 
                     <th>
                         <form @submit.prevent="">
-                            <button class="btn btn-danger btn-sm" @click="eliminar(mensaje.id)">Eliminar</button>
+                            <button class="btn btn-danger btn-sm" @click="eliminar(mensaje.id)"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </th>
                 </tr>
