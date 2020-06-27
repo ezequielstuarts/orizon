@@ -17,7 +17,7 @@
                 @if ( $totalNoticiasOcultas < 1)
                     <h5 class="text-secondary">No hay noticias ocultas.</h5>
                 @else
-                    <h5 class="card-text">{{$totalNoticiasOcultas}} Noticias Ocultas.</h5>
+                    <h6 class="card-text">{{$totalNoticiasOcultas}} Noticias Ocultas.</h6>
                 @endif
                 @if ( $totalNoticiasVisibles > 0)
                 <hr>
@@ -33,6 +33,7 @@
                 <h4 class="card-title"><a href="{{ URL::to('admin/mensajes') }}">MENSAJES</a>    </h4>
                 @if ( $totalMensajes > 0)
                     <h5 class="card-text">{{$totalMensajes}} Mensajes recibidos.</h5>
+                    <h6 class="card-text">{{$noRespondidos}} Sin responder.</h6>
                 @else
                     <h5 class="text-secondary">No hay Mensajes.</h5>
                 @endif
