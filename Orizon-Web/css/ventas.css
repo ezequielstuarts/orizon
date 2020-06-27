@@ -1,0 +1,249 @@
+/********************* CONTENT *************************/
+.site-container {
+	background-color: #13B7DA;
+}
+
+.hr_85x2 { width: 85px; border-top: 2px solid #13b7da; padding: 0; }
+.hr_85x2_azul { width: 85px; border-top: 2px solid #0c265d; padding: 0; }
+.hr_85x2_blanco { width: 85px; border-top: 2px solid #fff; padding: 0; }
+
+.fila { position: relative; width: 100%; margin: 0 auto; padding-left:0%; padding-right: 0%; }
+.columna { position: relative; float: left; width: 100%; margin-right: 2%; padding: 2% 0%; }
+
+/********************* HEADER **************************/
+header {
+	position: absolute;
+	width: 100%;
+	height: 150px;
+	overflow: hidden;
+}
+.titulo_seccion {
+	position: relative;
+	margin-top: 30px;
+	margin-left: 5%;
+	text-align:left;
+}
+.titulo_seccion h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 25px;
+	font-weight: 600;
+	color: #fff;
+}
+
+/********************* VENTAS **************************/
+#ventas .fila { overflow: hidden; }
+#ventas .puntos_venta {
+	padding-top: 100px;
+	padding-bottom: 50px;
+}
+#ventas .puntos_venta .lista_puntos_venta {
+	margin: 0;
+	margin-left: 5%;
+}
+#ventas .proximamente {
+	position: relative;
+	width: 100%;
+	margin: 0;
+	padding-top: 50px;
+	padding-left: 5%;
+	padding-bottom: 60px;
+	background-color: #00215E;
+}
+
+#ventas h2 {
+	position: relative;
+	width: 90%;
+	margin: 0 auto;
+	padding: 5%;
+	color: #00215E;
+	font-size: 20px;
+	font-weight: 100;
+	line-height: 26px;
+	background-color: #fff;
+	z-index: 20;
+	/* opacity: 0.5; */
+}
+#ventas h2 strong { font-weight: 600; color: inherit; }
+#ventas h3 {
+	width: 90%;
+	margin-top: 25px;
+	margin-left: 5%;
+	margin-bottom: 25px;
+	font-size: 20px;
+	font-weight: 100;
+	color: #00215E;
+}
+#ventas h3 strong { font-weight: 600; color: inherit; }
+#ventas h4 {
+	margin: 0;
+	margin-bottom: 38px;
+	padding: 0;
+	color: #fff;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 17px;
+}
+#ventas h4 span.smaller { font-size: 17px; line-height: 17px; color: inherit; }
+
+#ventas ul {
+	margin: 0;
+}
+#ventas ul li {
+	
+	list-style: none;
+	font-size: 17px;
+	line-height: 27px;
+	font-weight: 400;
+	color: #fff;
+	-webkit-transition: color 0s linear;
+	-moz-transition: color 0s linear;
+	-o-transition: color 0s linear;
+	-ms-transition: color 0s linear;
+	transition: color 0s linear;
+}
+#ventas .puntos_venta ul { padding-left: 15px; margin-top: 30px; }
+#ventas .puntos_venta ul:first-child { margin-top: 0; }
+#ventas .puntos_venta ul li { color: #fff; }
+#ventas .puntos_venta ul li::before {
+	content: '';
+	width: 20px;
+	height: 27px;
+	display: none;
+	position: absolute;
+	left: 0;
+	background: url('../img/guanaco-icon.png') no-repeat;
+}
+/* #ventas .puntos_venta ul li:hover::before, */
+#ventas .puntos_venta ul li.active::before {
+	display: block;
+}
+#ventas .puntos_venta ul li:hover,
+#ventas .puntos_venta ul li.active { color: #00215E; cursor: default; }
+#ventas .proximamente ul { padding-left: 0; }
+#ventas .proximamente ul li { color: #13B7DA; }
+#ventas .proximamente ul li::before { content: '. '; }
+
+
+/********************* MAPA ****************************/
+#mapa { width: 100%; height: 600px; }
+#mapa-ventas { width: 100%; height: 100%; background-image: url('../img/mapa.png'); background-position: center center; background-repeat: no-repeat; background-color: bisque; }
+#mapa-ventas div {
+	-webkit-transition: none;
+	   -moz-transition: none;
+	    -ms-transition: none;
+	     -o-transition: none;
+	        transition: none;
+}
+#mapa-ventas div.gm-bundled-control.gm-bundled-control-on-bottom { bottom: 247px !important; }
+#mapa-ventas div span[role='checkbox'] + label { color: #000; margin-bottom: 0; }
+
+/********************* EMPRESA *************************/
+
+@media screen and (min-width: 320px) {
+
+}
+
+@media screen and (min-width: 500px) {
+	
+	/********************* HEADER **************************/
+	.titulo_seccion {
+		margin-top: 60px;
+	}
+	.titulo_seccion h1 {
+		font-size: 44px;
+	}
+	
+	/********************* VENTAS **************************/
+	#ventas .puntos_venta {
+		padding-top: 160px;
+		padding-bottom: 60px;
+	}
+	#ventas h2 {
+		padding: 20px 35px;
+		font-size: 24px;
+		line-height: 36px;
+	}
+	#ventas h3 {
+		width: 420px;
+		margin-top: 30px;
+		margin-left: 5%;
+		margin-bottom: 45px;
+		font-size: 30px;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	
+} 
+
+@media screen and (min-width: 768px) {
+	
+	/********************* VENTAS **************************/
+	#ventas .puntos_venta .lista_puntos_venta > div > div:last-child ul:not(:first-child) {
+		margin-top: 94px;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	
+	/********************* VENTAS **************************/
+	#ventas .puntos_venta {
+		padding-bottom: 130px;
+	}
+	#ventas .puntos_venta .lista_puntos_venta {
+		margin-right: 40%;
+	}
+	#ventas .proximamente {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 40%;
+		height: 100%;
+		margin: 0;
+		padding-top: 340px;
+		padding-left: 4%;
+		padding-bottom: 130px;
+	}
+	#ventas h2 {
+		width: auto;
+		position: absolute;
+		top: 125px;
+		left: 56%;
+		background: #fff;
+		margin: 0;
+		padding: 27px;
+		color: #00215E;
+		font-size: 24px;
+		font-weight: 100;
+		line-height: 36px;
+		z-index: 20;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	
+	/********************* VENTAS **************************/
+	#ventas h2 {
+		width: 536px;
+		left: auto;
+		right: 7.5%;
+		padding: 27px 39px;
+		font-size: 32px;
+	}
+	#ventas h3 {
+		width: 523px;
+		font-size: 36px;
+	}
+}
+
+@media screen and (min-width: 1440px) {	
+	#ventas h2 {
+		width: auto;
+		left: 704px;
+	}
+}
+
+@media screen and (min-width: 1920px) {	
+	
+}

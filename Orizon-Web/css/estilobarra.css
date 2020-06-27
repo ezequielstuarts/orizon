@@ -1,0 +1,104 @@
+*{margin: 0px;padding: 0px;font-family: 'Montserrat', sans-serif;color: #fff;}
+
+#menu{
+	width: 83px;
+	height: 100vh;
+	background-color:#fff;
+	position: absolute;
+	overflow: hidden;
+	-webkit-transition:width .7s;
+}
+.fix{
+	position: fixed;
+	z-index: 10000;
+}
+
+#logo-principal{
+	margin-top: 49px;
+	margin-left: 21px;
+}
+
+#menu:hover{
+	width: 540px;
+	display: inline;
+}
+.textomenu{
+	color: #0c265d !important;
+	font-weight:300;
+	font-size: 30px;
+	padding-top: 0px;
+	padding-left: 83px;
+	text-transform: uppercase;
+}
+#contenedor_general_primero{
+	margin-top: 30px;
+}
+.contenedor_general a:visited{
+	color: #0c265d !important;;
+	text-decoration: none;
+}
+.contenedor_general a{
+	color: #0c265d !important;;
+	text-decoration: none;
+}
+.contenedor_general a:active, .contenedor_general a:hover{
+	color: #13b7da !important;
+	text-decoration: none;
+}
+.share_idioma{
+	position: fixed;
+	bottom: 0;
+	padding-bottom: 60px;
+	padding-left: 16px;
+}
+.share_idioma span{
+
+	font-size: 9.9px;
+	font-weight: 700;	
+	color: #0c265d;
+}
+.share_idioma img{
+padding-bottom: 9px;
+
+}
+
+
+/********************* BARRA 2 ***************************/
+.barra2{
+	top: 100px;
+	display: none;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+}
+.navbar-toggler{
+	height: 73px;
+}
+.navbar-brand img {
+	height: 100%;
+
+}
+.navbar{
+	padding: 0px 1rem !important;
+}
+.navbar-light .navbar-toggler{
+	border-style: none;
+	padding: 0px !important;
+}
+.navbar-light .navbar-toggler-icon{
+	background-image: url(../img/icon_menu.png) !important;
+}
+#icon_cerrar{
+	background-image: url(../img/icon_cerrar.png) !important;
+}
+
+.navbar-light .navbar-nav .nav-link{
+	color:#0c265d !important;
+	font-size: 20px !important;
+	padding: 2px 0rem !important;
+}
+.navbar-nav .nav-item .nav-link:hover{
+	color:#13b7da !important;
+}
+.padding2{
+	padding-bottom: 30px;
+}

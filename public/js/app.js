@@ -52921,7 +52921,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_c("i", { staticClass: "fas fa-eye" })]
+                      [_vm._v("Ver")]
                     )
                   ]
                 )
@@ -53000,7 +53000,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_c("i", { staticClass: "fas fa-trash-alt" })]
+                      [_vm._v("Eliminar")]
                     )
                   ]
                 )
