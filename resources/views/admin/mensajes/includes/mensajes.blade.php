@@ -40,7 +40,7 @@
     $(document).ready(function() {
         var tableMensajes = $('#mensajes').DataTable( {
             "serveSide": true,
-            "ajax":"{{ url('api/getMensajes')}}",
+            "ajax":"{{ url('api/mensajes')}}",
             "columns": [
                 {
                     "className":      'details-control',
@@ -52,7 +52,7 @@
                     {"data": 'nombre'},
                     {"data": 'email'},
             ],
-            
+
             "order": [[1, 'desc']],
             "language": {
                 "lengthMenu": "Ver _MENU_ mensajes por pagina",
@@ -66,7 +66,7 @@
     // Add event listener for opening and closing details
     $('#mensajes tbody').on('click', 'td', function () {
             var tr = $(this).closest('tr');
-            var row = tableMensajes.row( tr );
+            var row = dTable.row( tr );
 
             if ( row.child.isShown() ) {
                 // This row is already open - close it
