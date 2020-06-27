@@ -2,7 +2,7 @@
 
 ## About Orizon
 
-Migración de sitio web html a laravel, con implementacion de backofice y base de datos mysql. https://www.orizon.com.ar/.
+Migración de sitio web html a laravel, con implementacion de backofice y base de datos mysql. https://orizon.ezequielstuarts.com.ar
 
 ## Acceso al backoffice
-http://orizon.ezequielstuarts.dhalumnos.com/admin
+http://orizon.ezequielstuarts.com.ar/admin
