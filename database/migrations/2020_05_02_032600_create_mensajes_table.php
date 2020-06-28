@@ -23,7 +23,7 @@ class CreateMensajesTable extends Migration
             $table->string('localidad', 256);
             $table->string('empresa', 256);
             $table->mediumText('mensaje');
-            $table->enum('status', ['RESP', 'NORESP'])->default('NORESP');
+            $table->boolean('status')->default('0');
             $table->timestamps();
         });
     }

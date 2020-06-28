@@ -8,5 +8,5 @@ class MensajeVentas extends Model
 {
     public $table = "mensajes_venta";
     protected $fillable = [
-        'nombre', 'telefono', 'email', 'pais', 'provincia', 'localidad', 'razon', 'mensaje'];
+        'nombre', 'telefono', 'email', 'pais', 'provincia', 'localidad', 'razon', 'mensaje', 'status'];
 }

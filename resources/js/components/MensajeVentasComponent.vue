@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-            <table class="table table-hover table-striped" id="myTable">
+            <table class="table table-hover table-striped" id="myTableVentas">
                 <thead>
                     <tr class="tr-background">
                         <th>Id</th>
@@ -63,11 +63,11 @@
         methods: {
             dTable() {
                 $(document).ready( function () {
-                $('#myTable').DataTable();
+                $('#myTableVentas').DataTable();
                 });
             },
             getMensajes: function() {
-                axios.get('/api/mensajes').then(response => {
+                axios.get('/api/mensajesVentas').then(response => {
                     this.mensajes = response.data;
                     this.dTable();
                 });
@@ -82,13 +82,13 @@
                     cancelButtonText: 'Cancelar',
                     confirmButtonText: 'Si, borrar!'
                     }).then((result) => {
-                    if (result.value) {
-                        axios.delete(`/api/mensajes/${mensaje}`)
-                        .then(() => {
-                            toastr.success('Mensaje eliminado');
-                            this.getMensajes();
-                        })
-                    }
+                        if (result.value) {
+                            axios.delete(`/api/mensajesVentas/${mensaje}`)
+                            .then(resp => {
+                                this.getMensajes();
+                                toastr.success('Mensaje eliminado');
+                            })
+                        }
                     })
             },
             responder(mensaje) {
@@ -96,19 +96,19 @@
                 const params = {};
                 if (status) {
                     const params = {status: false};
-                    axios.put(`/api/mensajes/${mensaje.id}`, params)
+                    axios.put(`/api/mensajesVentas/${mensaje.id}`, params)
                     .then(resp => {
-                        toastr.info('Mensaje marcado como <b>no respondido</b>!');
                         this.getMensajes();
+                        toastr.info('Mensaje marcado como <b>no respondido</b>!');
                     })
                     .catch(error => toastr.error('Sucedio algun error</b>!'))
                 } else {
                     const params = {status: true};
-                    axios.put(`/api/mensajes/${mensaje.id}`, params)
+                    axios.put(`/api/mensajesVentas/${mensaje.id}`, params)
                     .then(resp => {
                         console.log(resp);
-                        toastr.info('Mensaje marcado como <b>respondido</b>!');
                         this.getMensajes();
+                        toastr.info('Mensaje marcado como <b>respondido</b>!');
                     })
                     .catch(error => toastr.error('Sucedio algun error</b>!'))
                 }
@@ -117,7 +117,7 @@
                 Swal.fire({
                 width: 800,
                 title: '<h4>Mensaje Recibido el '+mensaje.created_at+' | '+mensaje.recibido+'</h4>',
-                html: '<hr/><div class="mensaje-sweet"><p> <b>De: </b>'+mensaje.nombre+'<b> - Email: </b>'+mensaje.email+'<p> <b>Localidad: </b>'+mensaje.localidad+' - '+mensaje.provincia+' - '+mensaje.pais+'</p>'+'<p> <b>Teléfono: </b>'+mensaje.telefono+'<b> - Empresa: </b>'+mensaje.empresa+'</p>'+'<hr/>'+'<p> <b>Mensaje: </b>'+mensaje.mensaje+'</p>'+'<hr/></div>',
+                html: '<hr/><div class="mensaje-sweet"><p> <b>De: </b>'+mensaje.nombre+'<b> - Email: </b>'+mensaje.email+'<p> <b>Localidad: </b>'+mensaje.localidad+' - '+mensaje.provincia+' - '+mensaje.pais+'</p>'+'<p> <b>Teléfono: </b>'+mensaje.telefono+'<hr/><b>Asunto: </b>'+mensaje.razon+' </p>'+'<hr/>'+'<p> <b>Mensaje: </b>'+mensaje.mensaje+'</p>'+'<hr/></div>',
                 focusConfirm: false,
                 })
             }

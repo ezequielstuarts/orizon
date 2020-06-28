@@ -26,7 +26,7 @@ class AdminController extends Controller
 
         $mensajes = Mensaje::All();
         $totalMensajes = count(Mensaje::get());
-        $noRespondidos = count(Mensaje::where('status', 'NORESP')->get());
+        $noRespondidos = count(Mensaje::where('status', false)->get());
 
         $mensajeVentas = MensajeVentas::All();
         $totalMensajesVentas = count(MensajeVentas::get());
