@@ -712,6 +712,7 @@ span {
     }
     footer {
         margin-top: -350px !important;
+        padding-bottom: 50px;
     }
 }
 

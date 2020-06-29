@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //factory(App\Noticia::class, 20)->create();
-        factory(App\MensajeVentas::class, 250)->create();
+        factory(App\MensajeVentas::class, 198)->create();
         // $this->call(UserSeeder::class);
         // $this->call(NoticiasSeeder::class);
-        //$this->call(MensajesSeeder::class);
+        $this->call(MensajesSeeder::class);
         // $this->call(MensajesVentasSeeder::class);
     }
 }

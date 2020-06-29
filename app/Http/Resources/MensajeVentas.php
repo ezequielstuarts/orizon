@@ -25,8 +25,8 @@ class MensajeVentas extends JsonResource
             'razon' => $this->razon,
             'mensaje' => $this->mensaje,
             'status' => $this->status,
-            'recibido' => $this->created_at->diffForHumans(),
-            'created_at' => $this->created_at->format('d-m-Y')
+            // 'recibido' => $this->created_at->diffForHumans(),
+            // 'created_at' => $this->created_at->format('d-m-Y')
         ];
     }
 }

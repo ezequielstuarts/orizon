@@ -1,51 +1,49 @@
 <template>
-    <div class="container">
-            <table class="table table-hover table-striped" id="myTableVentas">
-                <thead>
-                    <tr class="tr-background">
-                        <th>Id</th>
-                        <th>Recibido</th>
-                        <th>Nombre</th>
-                        <th>Email</th>
-                        <th>Ver</th>
-                        <th>Estado</th>
-                        <th>Accion</th>
-                    </tr>
-                </thead>
-            <tbody>
-                <tr v-for="(mensaje, index) in mensajes" :key="index">
-                    <td>{{mensaje.id}}</td>
-                    <td>{{mensaje.created_at}}</td>
-                    <td>{{mensaje.nombre}}</td>
-                    <td>{{mensaje.email}}</td>
+    <table class="table table-hover table-striped" id="myTableVentas">
+        <thead>
+            <tr class="tr-background">
+                <th>Id</th>
+                <th>Recibido</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Ver</th>
+                <th>Estado</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+    <tbody>
+        <tr v-for="(mensaje, index) in mensajes" :key="index">
+            <td>{{mensaje.id}}</td>
+            <td>{{mensaje.created_at}}</td>
+            <td>{{mensaje.nombre}}</td>
+            <td>{{mensaje.email}}</td>
 
-                    <th>
-                        <form @submit.prevent="">
-                            <button class="btn btn-primary btn-sm" @click="leer(mensaje)"><i class="fas fa-eye"></i></button>
-                        </form>
-                    </th>
-                    <th>
-                        <form @submit.prevent="" v-if="mensaje.status">
+            <th>
+                <form @submit.prevent="">
+                    <button class="btn btn-primary btn-sm" @click="leer(mensaje)"><i class="fas fa-eye"></i></button>
+                </form>
+            </th>
+            <th>
+                <form @submit.prevent="" v-if="mensaje.status">
 
-                            <button class="btn btn-info btn-sm" @click="responder(mensaje)">Respondido</button>
+                    <button class="btn btn-info btn-sm" @click="responder(mensaje)">Respondido</button>
 
-                            <!-- <button class="btn btn-sm btn-info">Cargando <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button> -->
+                    <!-- <button class="btn btn-sm btn-info">Cargando <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button> -->
 
-                        </form>
-                        <form @submit.prevent="" v-else>
-                            <button class="btn btn-warning btn-sm" @click="responder(mensaje)">No Respondido</button>
-                        </form>
-                    </th>
+                </form>
+                <form @submit.prevent="" v-else>
+                    <button class="btn btn-warning btn-sm" @click="responder(mensaje)">No Respondido</button>
+                </form>
+            </th>
 
-                    <th>
-                        <form @submit.prevent="">
-                            <button class="btn btn-danger btn-sm" @click="eliminar(mensaje.id)"><i class="fas fa-trash-alt"></i></button>
-                        </form>
-                    </th>
-                </tr>
-            </tbody>
-            </table>
-        </div>
+            <th>
+                <form @submit.prevent="">
+                    <button class="btn btn-danger btn-sm" @click="eliminar(mensaje.id)"><i class="fas fa-trash-alt"></i></button>
+                </form>
+            </th>
+        </tr>
+    </tbody>
+    </table>
 </template>
 <script>
     import axios from 'axios';

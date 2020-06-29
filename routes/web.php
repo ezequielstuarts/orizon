@@ -44,12 +44,8 @@ Route::group(['middleware' => 'auth'], function ()
 
     Route::get('admin/mensajes', 'Admin\MensajesController@index');
 
-
     Route::apiResource('api/mensajes', 'Admin\api\MensajeController');
     Route::apiResource('api/mensajesVentas', 'Admin\api\MensajeVentasController');
-
-    // Route::resource('/api/getMensajes', 'Admin\Api\MensajesController');
-    // Route::get('/api/getMensajesVentas', 'Admin\ApiController@getMensajesVentas');
 });
 
 

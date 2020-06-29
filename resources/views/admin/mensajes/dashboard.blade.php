@@ -39,8 +39,6 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         {{-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> --}}
-        {{-- @include('admin.mensajes.includes.mensajes')
-        @include('admin.mensajes.includes.mensajesVentas') --}}
     @endsection
 @endsection
 

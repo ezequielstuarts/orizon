@@ -19,6 +19,23 @@ nav .fas {
     padding-bottom: 20px;
 }
 
+.loader_datatables {
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    top: 60px;
+    left: 23%;
+}
+
+.loader_datatables i {
+    font-size: 50px;
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    top: 60px;
+    left: 23%;
+}
+
 
 /* .ocultar {
     display: none;

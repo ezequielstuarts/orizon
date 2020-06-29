@@ -1,51 +1,53 @@
 <template>
-    <div class="container">
-            <table class="table table-hover table-striped" id="myTable">
-                <thead>
-                    <tr class="tr-background">
-                        <th>Id</th>
-                        <th>Recibido</th>
-                        <th>Nombre</th>
-                        <th>Email</th>
-                        <th>Ver</th>
-                        <th>Estado</th>
-                        <th>Accion</th>
-                    </tr>
-                </thead>
-            <tbody>
-                <tr v-for="(mensaje, index) in mensajes" :key="index">
-                    <td>{{mensaje.id}}</td>
-                    <td>{{mensaje.created_at}}</td>
-                    <td>{{mensaje.nombre}}</td>
-                    <td>{{mensaje.email}}</td>
-
-                    <th>
-                        <form @submit.prevent="">
-                            <button class="btn btn-primary btn-sm" @click="leer(mensaje)"><i class="fas fa-eye"></i></button>
-                        </form>
-                    </th>
-                    <th>
-                        <form @submit.prevent="" v-if="mensaje.status">
-
-                            <button class="btn btn-info btn-sm" @click="responder(mensaje)">Respondido</button>
-
-                            <!-- <button class="btn btn-sm btn-info">Cargando <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button> -->
-
-                        </form>
-                        <form @submit.prevent="" v-else>
-                            <button class="btn btn-warning btn-sm" @click="responder(mensaje)">No Respondido</button>
-                        </form>
-                    </th>
-
-                    <th>
-                        <form @submit.prevent="">
-                            <button class="btn btn-danger btn-sm" @click="eliminar(mensaje.id)"><i class="fas fa-trash-alt"></i></button>
-                        </form>
-                    </th>
+        <table class="table table-hover table-striped" id="myTable">
+            <div v-if="loader_datatables" class="container loader_datatables mx-auto">
+                <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
+            </div>
+            <thead>
+                <tr class="tr-background">
+                    <th>Id</th>
+                    <th>Recibido</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Ver</th>
+                    <th>Estado</th>
+                    <th>Accion</th>
                 </tr>
-            </tbody>
-            </table>
-        </div>
+            </thead>
+        <tbody>
+            <tr v-for="(mensaje, index) in mensajes" :key="index">
+                <td>{{mensaje.id}}</td>
+                <td>{{mensaje.created_at}}</td>
+                <td>{{mensaje.nombre}}</td>
+                <td>{{mensaje.email}}</td>
+
+                <th>
+                    <form @submit.prevent="">
+                        <button class="btn btn-primary btn-sm" v-bind:id="'msg' + mensaje.id" @click="leer(mensaje)"><i class="fas fa-eye"></i></button>
+                    </form>
+                </th>
+                <th>
+<form @submit.prevent>
+
+    <button v-if="mensaje.status" class="btn btn-info btn-sm" @click="responder(mensaje)">Respondido</button>
+
+    <!-- <button class="btn btn-sm btn-info">Cargando <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button> -->
+
+
+    <button v-else class="btn btn-warning btn-sm" @click="responder(mensaje)">No Respondido</button>
+
+    <!-- <button class="btn btn-sm btn-warning">Cargando <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></button> -->
+
+                    </form>
+                </th>
+                <th>
+                    <form @submit.prevent>
+                        <button class="btn btn-danger btn-sm" @click="eliminar(mensaje.id)"><i class="fas fa-trash-alt"></i></button>
+                    </form>
+                </th>
+            </tr>
+        </tbody>
+        </table>
 </template>
 <script>
     import axios from 'axios';
@@ -54,7 +56,9 @@
     export default {
         data() {
             return {
-                mensajes: null
+                mensajes: null,
+                loader_datatables: true,
+                cargando: false
             }
         },
         mounted() {
@@ -69,6 +73,7 @@
             getMensajes: function() {
                 axios.get('/api/mensajes').then(response => {
                     this.mensajes = response.data;
+                    this.loader_datatables = false
                     this.dTable();
                 });
             },
@@ -85,8 +90,8 @@
                     if (result.value) {
                         axios.delete(`/api/mensajes/${mensaje}`)
                         .then(() => {
-                            toastr.success('Mensaje eliminado');
                             this.getMensajes();
+                            toastr.success('Mensaje eliminado');
                         })
                     }
                     })
@@ -94,21 +99,25 @@
             responder(mensaje) {
                 const status = mensaje.status;
                 const params = {};
+                this.cargando = true;
                 if (status) {
                     const params = {status: false};
                     axios.put(`/api/mensajes/${mensaje.id}`, params)
                     .then(resp => {
-                        toastr.info('Mensaje marcado como <b>no respondido</b>!');
+                        console.log(mensaje.id);
+                        this.cargando = false;
                         this.getMensajes();
+                        toastr.info('Mensaje marcado como <b>no respondido</b>!');
                     })
                     .catch(error => toastr.error('Sucedio algun error</b>!'))
                 } else {
                     const params = {status: true};
                     axios.put(`/api/mensajes/${mensaje.id}`, params)
                     .then(resp => {
-                        console.log(resp);
-                        toastr.info('Mensaje marcado como <b>respondido</b>!');
+                        console.log(mensaje.id);
+                        this.cargando = false;
                         this.getMensajes();
+                        toastr.info('Mensaje marcado como <b>respondido</b>!');
                     })
                     .catch(error => toastr.error('Sucedio algun error</b>!'))
                 }
