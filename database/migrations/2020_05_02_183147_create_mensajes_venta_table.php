@@ -23,7 +23,7 @@ class CreateMensajesVentaTable extends Migration
             $table->string('localidad', 256);
             $table->enum('razon', ['Quiero ser distribuidor', 'Consulta', 'Exportación', 'Trabajar en Orizon']);
             $table->mediumText('mensaje');
-            $table->enum('status', ['RESP', 'NORESP'])->default('NORESP');
+            $table->boolean('status')->default('0');
             $table->timestamps();
         });
     }

@@ -13,27 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('home', function () {
-    return view('index');
-});
-Route::get('nosotros', function () {
-    return view('nosotros');
-});
-Route::get('nuestros-productos', function () {
-    return view('nuestros-productos');
-});
-Route::get('donde-estamos', function () {
-    return view('donde-estamos');
-});
-Route::get('puntos-de-venta', function () {
-    return view('puntos-de-venta');
-});
-Route::get('contacto', function () {
-    return view('contacto');
-});
+Route::get('/', function () {return view('index');});
+Route::get('home', function () {return view('index');});
+Route::get('nosotros', function () {return view('nosotros');});
+Route::get('nuestros-productos', function () {return view('nuestros-productos');});
+Route::get('donde-estamos', function () {return view('donde-estamos');});
+Route::get('puntos-de-venta', function () {return view('puntos-de-venta');});
+Route::get('contacto', function () {return view('contacto');});
 
 Route::get('novedades', 'NoticiasController@index')->name('novedades');
 
@@ -51,17 +37,19 @@ Route::group(['middleware' => 'auth'], function ()
 {
     Route::get('admin', 'Admin\AdminController@index');
     Route::resource('admin/noticias', 'Admin\NoticiasController');
-    
+
     Route::get('admin/noticias-ocultas', 'Admin\NoticiasController@ocultas')->name('admin.noticias-ocultas');
     Route::get('admin/noticias/ocultar/{id}', 'Admin\NoticiasController@ocultar')->name('noticias.ocultar');
     Route::get('admin/noticias/mostrar/{id}', 'Admin\NoticiasController@mostrar')->name('noticias.mostrar');
-    Route::resource('admin/mensajes', 'Admin\MensajesController');
 
-    Route::get('/api/getMensajes', 'Admin\ApiController@getMensajes');
-    Route::get('/api/getMensajesVentas', 'Admin\ApiController@getMensajesVentas');
+    Route::get('admin/mensajes', 'Admin\MensajesController@index');
+
+    Route::apiResource('api/mensajes', 'Admin\api\MensajeController');
+    Route::apiResource('api/mensajesVentas', 'Admin\api\MensajeVentasController');
 });
 
-Route::get('/init', function () {
+
+    Route::get('/init', function () {
     Artisan::call('storage:link');
     return 'ready!';
 });

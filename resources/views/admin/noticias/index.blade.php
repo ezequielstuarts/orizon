@@ -15,7 +15,7 @@
             </div>
         <div class="col-md-2">
             <div class="boton-nueva-noticia">
-                <a class="" href="{{route('admin.noticias-ocultas')}}" title="Ver noticias ocultas"><i class="fas fa-eye-slash"></i></a>
+                <a href="{{route('admin.noticias-ocultas')}}" title="Ver noticias ocultas"><i class="fas fa-eye-slash"></i></a>
             </div>
         </div>
     </div>
@@ -74,7 +74,12 @@
             <h3>No hay Noticias cargadas en la base de datos</h3>
         </div>
         @endforelse
+
+
     </table>
+    <div class="conteiner">
+        {{ $noticias->links() }}
+    </div>
 
 </div>
 

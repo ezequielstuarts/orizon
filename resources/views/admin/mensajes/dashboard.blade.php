@@ -3,9 +3,13 @@
 
 @section('styles')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 @endsection
 
 
+<div class="container">
+
+</div>
 <div class="container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -17,43 +21,25 @@
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="container mt-3">
-                <table id="mensajes" class="display" style="width:100%">
-                    <thead>
-                        <tr class="tr-background">
-                            <th></th>
-                            <th>Fecha</th>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                </table>
+            <div class="container mt-4">
+                <mensaje-component></mensaje-component>
             </div>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <div class="container mt-3">
-                <table id="mensajesVentas" class="display" style="width:100%">
-                    <thead>
-                        <tr class="tr-background">
-                            <th></th>
-                            <th>Fecha</th>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Razon</th>
-                        </tr>
-                    </thead>
-                </table>
+            <div class="container mt-4">
+                <mensajeventas-component></mensajeventas-component>
+
             </div>
         </div>
-      </div>
+    </div>
 </div>
 
-@endsection
-@section('scripts')
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    @include('admin.mensajes.includes.mensajes')
-    @include('admin.mensajes.includes.mensajesVentas')
+
+    @section('scripts')
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        {{-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> --}}
+    @endsection
 @endsection
 
 

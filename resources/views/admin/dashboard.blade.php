@@ -1,27 +1,34 @@
 @extends('admin.admin')
 @section('content')
 
-<div class="container mt-5">
+<div class="container">
     <div class="row">
         <div class="col-md-6">
             <div class="card-body card-admin">
                 <i style="padding-right:10px;" class="float-left fas fa-newspaper"></i>
-                <h4 class="card-title"><a href="{{ URL::to('admin/noticias') }}">NOTICIAS</a>    </h4>
+                <h4 class="card-title"><a href="{{ URL::to('admin/noticias') }}">NOTICIAS</a></h4>
 
-                @if ( $totalNoticiasVisibles > 0)
-                    <h5 class="card-text">{{$totalNoticiasVisibles}} Noticias visibles.</h5>
-                @else
-                    <h5 class="text-secondary">No hay noticias visibles.</h5>
-                @endif
+                @if ( $totalNoticias > 0)
+                    <h4 class="card-text">Total {{$totalNoticias}} Noticias.</h4>
 
-                @if ( $totalNoticiasOcultas < 1)
-                    <h5 class="text-secondary">No hay noticias ocultas.</h5>
+                    @if ( $totalNoticiasVisibles > 0)
+                        <h5 class="card-text">{{$totalNoticiasVisibles}} visibles.</h5>
+                    @else
+                        <h5 class="text-secondary">No hay noticias visibles.</h5>
+                    @endif
+
+                    @if ( $totalNoticiasOcultas < 1)
+                        <h5 class="text-secondary">No hay noticias ocultas.</h5>
+                    @else
+                        <h6 class="card-text">{{$totalNoticiasOcultas}} Ocultas.</h6>
+                    @endif
+                    @if ( $totalNoticiasVisibles > 0)
+                    <hr>
+                        <footer class="blockquote-footer">Última actualización el: {{$noticias->last()->updated_at->format('d-m-Y') }} | Hace {{ $noticias->last()->updated_at->diffForHumans() }}.</footer>
+                    @endif
+
                 @else
-                    <h5 class="card-text">{{$totalNoticiasOcultas}} Noticias Ocultas.</h5>
-                @endif
-                @if ( $totalNoticiasVisibles > 0)
-                <hr>
-                    <footer class="blockquote-footer">Última actualización el: {{$noticias->last()->updated_at->format('d-m-Y') }} | Hace {{ $noticias->last()->updated_at->diffForHumans() }}.</footer>
+                <h5 class="text-secondary">No hay Noticias.</h5>
                 @endif
 
             </div>
@@ -33,6 +40,7 @@
                 <h4 class="card-title"><a href="{{ URL::to('admin/mensajes') }}">MENSAJES</a>    </h4>
                 @if ( $totalMensajes > 0)
                     <h5 class="card-text">{{$totalMensajes}} Mensajes recibidos.</h5>
+                    <h6 class="card-text">{{$noRespondidosVentas}} Sin responder.</h6>
                 @else
                     <h5 class="text-secondary">No hay Mensajes.</h5>
                 @endif
@@ -51,6 +59,7 @@
                 </h4>
                 @if ( $totalMensajesVentas > 0)
                     <h5 class="card-text">{{$totalMensajesVentas}} Mensajes recibidos.</h5>
+                    <h6 class="card-text">{{$noRespondidos}} Sin responder.</h6>
                 @else
                     <h5 class="text-secondary">No hay Mensajes.</h5>
                 @endif
