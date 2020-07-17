@@ -10,17 +10,17 @@ use Illuminate\Http\Request;
 
 class MensajeVentasController extends Controller
 {
-    protected $mensajeVentas;
+    protected $mensajesVenta;
 
-    public function __construct(MensajeVentas $mensajeVentas)
+    public function __construct(MensajeVentas $mensajesVenta)
     {
-        $this->mensajeVentas = $mensajeVentas;
+        $this->mensajesVenta = $mensajesVenta;
     }
 
     public function index()
     {
         return response()->json(
-            new MensajeVentasCollection($this->mensajeVentas->orderBy('created_at', 'desc')->get())
+            new MensajeVentasCollection($this->mensajesVenta->orderBy('created_at', 'desc')->get())
         );
     }
 
@@ -29,20 +29,20 @@ class MensajeVentasController extends Controller
         //
     }
 
-    public function show(MensajeVentas $mensajeVentas)
+    public function show(MensajeVentas $mensajesVenta)
     {
-        return response()->json(new MensajeVentasResource($mensajeVentas));
+        return response()->json(new MensajeVentasResource($mensajesVenta));
     }
 
-    public function update(Request $request, MensajeVentas $mensajeVentas)
+    public function update(Request $request, MensajeVentas $mensajesVenta)
     {
-        $mensajeVentas->update($request->all());
-        return response()->json(new MensajeVentasResource($mensajeVentas));
+        $mensajesVenta->update($request->all());
+        return response()->json(new MensajeVentasResource($mensajesVenta));
     }
 
-    public function destroy(MensajeVentas $mensajeVentas)
+    public function destroy(MensajeVentas $mensajesVenta)
     {
-        $mensajeVentas->delete();
+        $mensajesVenta->delete();
         return response()->json(null, 204);
     }
 }

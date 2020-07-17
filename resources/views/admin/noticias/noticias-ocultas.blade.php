@@ -4,8 +4,8 @@
 <div class="container mb-3">
     <div class="row">
 
-        <div class="col-md-9 ">
-            {{-- <h5 class="text-secondary">Listado de noticias. <b>{{$totalNoticias}}</b> Noticias en la base de datos.</h5> --}}
+        <div class="col-md-">
+            <h5 class="text-secondary"><b>{{$totalNoticias}}</b> Noticias <b>ocultas</b> en la base de datos.</h5>
         </div>
 
 
@@ -70,6 +70,9 @@
         </div>
         @endforelse
     </table>
+    <div class="conteiner">
+        {{ $noticias->links() }}
+    </div>
 </div>
 
 @endsection

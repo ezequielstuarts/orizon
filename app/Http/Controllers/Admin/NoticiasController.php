@@ -24,10 +24,10 @@ class NoticiasController extends Controller
         $title = $request->get('titleSearch');
 
         $ruta = '/storage/imagenes/img_noticias';
-        $totalNoticias = count(Noticia::get());
 
-        $noticias = Noticia::where('status', 'PUBLISHED')->orderBy('date', 'DESC')
-        ->title($title)->get();
+        $noticias = Noticia::where('status', 'PUBLISHED')->orderBy('date', 'DESC')->title($title)->paginate(10);
+
+        $totalNoticias = count(Noticia::where('status', 'PUBLISHED')->get());
 
         return view('admin.noticias.index', ['noticias' => $noticias, 'ruta' => $ruta, 'totalNoticias' => $totalNoticias, 'title' => $title]);
     }
@@ -35,8 +35,9 @@ class NoticiasController extends Controller
     public function ocultas()
     {
         $ruta = '/storage/imagenes/img_noticias';
-        $noticias = Noticia::where('status', 'DRAFT')->orderBy('date', 'DESC')->get();
-        return view('admin.noticias.noticias-ocultas', ['noticias' => $noticias, 'ruta' => $ruta]);
+        $noticias = Noticia::where('status', 'DRAFT')->orderBy('date', 'DESC')->paginate(10);
+        $totalNoticias = count($noticias);
+        return view('admin.noticias.noticias-ocultas', ['noticias' => $noticias, 'ruta' => $ruta, 'totalNoticias' => $totalNoticias,]);
     }
 
     /**
@@ -72,11 +73,10 @@ class NoticiasController extends Controller
             $noticia->contenido = $request['contenido'];
         }
         if($request->hasFile("img")) {
-            $carpeta = '/public/imagenes/img_noticias';
-            $nombreImg = $slug.'-'.time();
-            $extension = $request->file('img')->extension();
-            $file = $request->file("img")->storeAs($carpeta,$nombreImg.'.'.$extension);
-            $noticia->img = $nombreImg.'.'.$extension;
+            $carpeta = '/imagenes/img_noticias';
+            $rutaImg = $request->file("img")->store($carpeta, 'public');
+            $nombreImg = basename($rutaImg);
+            $noticia->img = $nombreImg;
         }
         $date = Carbon::createFromFormat('d-m-Y', $request->date)->toDateString();
         $noticia->date = $date;
@@ -134,13 +134,14 @@ class NoticiasController extends Controller
             $diff['slug'] = str_slug($request["title"]);
         }
         if ($request->has('img')) {
-            $img = $noticia['img'];
-            $carpeta = '/public/imagenes/img_noticias/';
-            Storage::delete($carpeta.$img);
-            $nombreImg = $noticia['slug'].'-'.time();
-            $extension = $request->file('img')->extension();
-            $file = $request->file("img")->storeAs($carpeta,$nombreImg.'.'.$extension);
-            $diff["img"] = $nombreImg.'.'.$extension;
+
+            $carpeta = '/imagenes/img_noticias';
+            $rutaImg = $request->file("img")->store($carpeta, 'public');
+            $nombreImg = basename($rutaImg);
+
+            $img_delete = $noticia['img'];
+            Storage::delete('public/imagenes/img_noticias/'.$img_delete);
+            $diff["img"] = $nombreImg;
         }
         $noticia->update($diff);
         return redirect()->route('noticias.show', $noticia->id)->with('info', 'Noticia Actualizada');
@@ -180,18 +181,14 @@ class NoticiasController extends Controller
         $noticia->delete();
         return redirect('admin/noticias-ocultas')->with('info', 'Noticia Eliminada');
     }
-
-    public function getNoticias()
-    {
-        $noticias = Noticia::all();
-        if($noticias)
-        {
-            return NoticiasResource::collection($noticias);
-        }
-        else
-        {
-            return response()->json(['Error' => 'Algo salió mal'], 404);
-        }
-
-    }
 }
+
+
+
+// if($request->hasFile("img")) {
+//     $carpeta = '/public/imagenes/img_noticias';
+//     $nombreImg = $slug.'-'.time();
+//     $extension = $request->file('img')->extension();
+//     $file = $request->file("img")->storeAs($carpeta,$nombreImg.'.'.$extension);
+//     $noticia->img = $nombreImg.'.'.$extension;
+// }

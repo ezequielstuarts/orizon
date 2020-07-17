@@ -20,6 +20,7 @@ class AdminController extends Controller
     public function index ()
     {
         $noticias = Noticia::all();
+        $totalNoticias = count($noticias);
         $totalNoticiasVisibles = count(Noticia::where('status', 'PUBLISHED')->get());
 
         $totalNoticiasOcultas = count(Noticia::where('status', 'DRAFT')->get());
@@ -30,9 +31,11 @@ class AdminController extends Controller
 
         $mensajeVentas = MensajeVentas::All();
         $totalMensajesVentas = count(MensajeVentas::get());
+        $noRespondidosVentas = count(MensajeVentas::where('status', false)->get());
 
         return view ("admin.dashboard", [
             'noticias' => $noticias,
+            'totalNoticias' => $totalNoticias,
             'totalNoticiasVisibles' => $totalNoticiasVisibles,
             'totalNoticiasOcultas' => $totalNoticiasOcultas,
 
@@ -41,7 +44,8 @@ class AdminController extends Controller
             'noRespondidos' => $noRespondidos,
 
             'mensajeVentas' => $mensajeVentas,
-            'totalMensajesVentas' => $totalMensajesVentas
+            'totalMensajesVentas' => $totalMensajesVentas,
+            'noRespondidosVentas' => $noRespondidosVentas
             ]);
 
     }
